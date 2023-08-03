@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  training_name: MyString
+  set_count: 1
+  weight: 1
+  rep_count: 1
+
+two:
+  training_name: MyString
+  set_count: 1
+  weight: 1
+  rep_count: 1

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :admins
   
-  root to:'public/homes#top'
+  root to: 'public/homes#top'
   
   namespace :admin do
     resources :users, only: [:index, :show, :destroy]

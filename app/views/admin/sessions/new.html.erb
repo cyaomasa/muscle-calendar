@@ -1,0 +1,19 @@
+<div class="container">
+  <h2 class="mt-2 py-3">管理者用ログイン</h2>
+
+  <%= form_with(model: resource, scope: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="col-md-6 mb-3">
+    <%= f.label :メールアドレス %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="col-md-6 mb-3">
+    <%= f.label :パスワード %><br />
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="col-md-6 mb-3">
+    <%= f.submit "ログイン", class:"btn btn-primary" %>
+  </div>
+  <% end %>
+</div>

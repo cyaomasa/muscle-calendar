@@ -17,5 +17,4 @@ class User < ApplicationRecord
       user.name = "ゲストユーザー"
     end
   end
-  
 end

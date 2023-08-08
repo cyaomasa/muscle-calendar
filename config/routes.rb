@@ -1,14 +1,10 @@
 Rails.application.routes.draw do
   
-  # 顧客用
-  # URL /users/sign_in ...
   devise_for :users, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
   
-  # 管理者用
-  # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
@@ -20,7 +16,7 @@ Rails.application.routes.draw do
     resources :post_records, only: [:index, :show, :destroy] do
       resources :comments, only: [:create, :destroy]
     end
-    resources :categories, only: [:index, :create, :edit, :update]
+    resources :categories, only: [:index, :create, :edit, :update, :destroy]
     
   end
 

@@ -16,15 +16,15 @@
   
   <table class="table">
     <tr class="row">
-      <th class="col-4 col-md-2">カテゴリ名</th>
-      <th class="col-3 col-md-1"></th>
-      <th class="col-3 col-md-1"></th>
+      <th class="col-4 col-lg-2">カテゴリ名</th>
+      <th class="col-3 col-lg-1"></th>
+      <th class="col-3 col-lg-1"></th>
     </tr>
     <% @categories.each do |category| %>
     <tr class="row">
-      <td class="col-4 col-md-2"><%= category.name %></td>
-      <td class="col-3 col-md-1"><%= link_to "編集", edit_admin_category_path(category.id), class: "btn btn-success" %></td>
-      <td class="col-3 col-md-1"><%= link_to "削除", admin_category_path(category.id), method: :delete, class: "btn btn-danger" %></td>
+      <td class="col-4 col-lg-2"><%= category.name %></td>
+      <td class="col-3 col-lg-1"><%= link_to "編集", edit_admin_category_path(category.id), class: "btn btn-success" %></td>
+      <td class="col-3 col-lg-1"><%= link_to "削除", admin_category_path(category.id), method: :delete, class: "btn btn-danger" %></td>
     </tr>
   <% end %>
   </table>

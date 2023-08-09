@@ -1,2 +1,38 @@
-<h1>Public::PostRecords#new</h1>
-<p>Find me in app/views/public/post_records/new.html.erb</p>
+<%= form_with( model: @form ,url: post_records_path, method: :post) do |fb| %>
+<table class="table">
+<thead>
+  <tr>
+    <th width="60px">登録</th>
+    <th>トレーニング名</th>
+    <th>セット数</th>
+    <th>重量</th>
+    <th>レップ数(回数)</th>
+  </tr>
+</thead>
+<tbody class="bulk-registration-form">
+<%= fb.fields_for :post_records do |f| %>
+  <tr class="item">
+  <td class="text-center">
+  <%#= f.check_box :register, class: 'top10 registration-checkbox' %>
+  </td>
+  <td>
+  <%= f.text_field :training_name, class: 'form-control' %>
+  </td>
+  <td>
+  <%= f.text_field :set_count, class: 'form-control' %>
+  </td>
+  <td>
+  <%= f.text_field :weight, class: 'form-control' %>
+  </td>
+  <td>
+  <%= f.text_field :rep_count, class: 'form-control' %>
+  </td>
+</tr>
+<% end %>
+</tbody>
+</table>
+
+<div class="text-center">
+<%= fb.submit '一括登録', class: 'btn btn-primary' %>
+</div>
+<% end %>

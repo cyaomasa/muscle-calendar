@@ -19,9 +19,10 @@ class Public::PostRecordsController < ApplicationController
   def create
     @form = Form::PostRecordCollection.new(post_record_collection_params)
     if @form.save(current_user)
-      redirect_to post_records_path, notice: "登録が完了しました"
+      flash[:notice] = "登録が完了しました。"
+      redirect_to post_records_path
     else
-      flash.now[:alert] = "登録に失敗しました"
+      flash.now[:alert] = "登録に失敗しました。"
       render :new
     end
   end
@@ -29,8 +30,10 @@ class Public::PostRecordsController < ApplicationController
   def update
     @post_record = PostRecord.find(params[:id])
     if @post_record.update(post_record_params)
+      flash[:notice] = "編集が完了しました。"
       redirect_to post_record_path(params[:id])
     else
+      flash.now[:alert] = "編集に失敗しました。"
       render :edit
     end
   end
@@ -38,7 +41,8 @@ class Public::PostRecordsController < ApplicationController
   def destroy
     @post_record = PostRecord.find(params[:id])
     @post_record.destroy
-    redirect_to post_records_path, notice: "削除が完了しました"
+    flash[:notice] = "削除が完了しました。"
+    redirect_to post_records_path
   end
   
   private

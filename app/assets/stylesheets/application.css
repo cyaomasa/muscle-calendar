@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ 
  .flash-message {
   border-radius: 5px;
   padding: 16px 24px;

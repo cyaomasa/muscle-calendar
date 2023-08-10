@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   
+  validates :name, presence: true
+  
   GUEST_USER_EMAIL = "guest@example.com"
 
   def self.guest
@@ -16,5 +18,9 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
       user.name = "ゲストユーザー"
     end
+  end
+  
+  def get_profile_image
+    (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
 end

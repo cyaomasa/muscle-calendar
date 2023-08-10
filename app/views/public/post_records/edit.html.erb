@@ -1,6 +1,6 @@
 <div class="container">
   <h4 class="my-5">トレーニング編集</h4>
-  <%= form_with model: @post_record, url: post_record_path, method: :pacth, local: true do |f| %>
+  <%= form_with model: @post_record, url: post_record_path(@post_record), method: :pacth do |f| %>
   <div class="row">
     <p class="col-4 col-lg-2 border-bottom"><b>トレーニング名:</b></p>
     <p class="col-4 col-lg-2 border-bottom"><%= f.text_field :training_name %></p>

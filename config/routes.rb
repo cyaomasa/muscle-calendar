@@ -17,7 +17,6 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
     end
     resources :categories, only: [:index, :create, :edit, :update, :destroy]
-    
   end
 
   scope module: :public do

@@ -5,7 +5,7 @@ class Public::PostRecordsController < ApplicationController
   end
 
   def index
-    @post_records = PostRecord.all
+    @post_records = PostRecord.order(created_at: :desc)
   end
 
   def show
@@ -28,8 +28,11 @@ class Public::PostRecordsController < ApplicationController
 
   def update
     @post_record = PostRecord.find(params[:id])
-    @post_record.update
-    redirect_to post_record_path(params[:id])
+    if @post_record.update(post_record_params)
+      redirect_to post_record_path(params[:id])
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -37,8 +40,13 @@ class Public::PostRecordsController < ApplicationController
   
   private
   
+  def post_record_params
+    params.require(:post_record).permit(:training_name, :set_count, :weight, :rep_count)
+  end
+  
   def post_record_collection_params
     params.require(:form_post_record_collection)
-      .permit(post_records_attributes: [:training_name, :set_count, :weight, :rep_count, :availability])
+      .permit(post_records_attributes: [:training_name, :set_count, :weight, :rep_count, :availability, :category_ids])
   end
+  
 end

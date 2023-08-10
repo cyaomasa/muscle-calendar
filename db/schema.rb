@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_09_010324) do
+ActiveRecord::Schema.define(version: 2023_08_09_052149) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -60,9 +60,10 @@ ActiveRecord::Schema.define(version: 2023_08_09_010324) do
     t.integer "set_count"
     t.integer "weight"
     t.integer "rep_count"
-    t.datetime "start_time"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "availability"
   end
 
   create_table "users", force: :cascade do |t|

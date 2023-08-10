@@ -1,2 +1,24 @@
-<h1>Public::PostRecords#edit</h1>
-<p>Find me in app/views/public/post_records/edit.html.erb</p>
+<div class="container">
+  <h4 class="my-5">トレーニング編集</h4>
+  <%= form_with model: @post_record, url: post_record_path, method: :pacth, local: true do |f| %>
+  <div class="row">
+    <p class="col-4 col-lg-2 border-bottom"><b>トレーニング名:</b></p>
+    <p class="col-4 col-lg-2 border-bottom"><%= f.text_field :training_name %></p>
+  </div>
+  <div class="row">
+    <p class="col-4 col-lg-2 border-bottom"><b>部位:</b></p>
+    <p class="col-4 col-lg-2 border-bottom"></p>
+  </div>
+  <div class="row">
+    <p class="col-4 col-lg-2 border-bottom"><b>セット数:</b></p>
+    <p class="col-4 col-lg-2 border-bottom"><%= f.text_field :set_count %>セット</p>
+  </div>
+  <div class="row">
+    <p class="col-4 col-lg-2 border-bottom"><b>1セット:</b></p>
+    <p class="col-4 col-lg-2 border-bottom"><%= f.text_field :rep_count %>回/<%= f.text_field :weight %>kg</p>
+  </div>
+  <div class="ml-5 mt-2 pl-5">
+    <%= f.submit "編集する", class: 'btn btn-success' %>
+  </div>
+  <% end %>
+</div>

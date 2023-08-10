@@ -7,18 +7,18 @@ class Form::PostRecordCollection < Form::Base
     self.post_records = FORM_COUNT.times.map { PostRecord.new() } unless self.post_records.present?
   end
   
-  # 上でsuper attributesとしているので必要
   def post_records_attributes=(attributes)
     self.post_records = attributes.map { |_, v| PostRecord.new(v) }
   end
-
-  def save
-    # 実際にやりたいことはこれだけ
-    # self.memos.map(&:save!)
-
-    # 複数件全て保存できた場合のみ実行したいので、transactionを使用する
+  
+  def save(user)
     PostRecord.transaction do
-      self.post_records.map(&:save!)
+      self.post_records.map do |post_record|
+        if post_record.availability # ここでチェックボックスにチェックを入れている投稿のみが保存される
+        post_record.user_id = user.id
+          post_record.save
+        end
+      end
     end
       return true
     rescue => e

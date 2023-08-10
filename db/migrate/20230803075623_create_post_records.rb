@@ -5,7 +5,7 @@ class CreatePostRecords < ActiveRecord::Migration[6.1]
       t.integer :set_count
       t.integer :weight
       t.integer :rep_count
-      t.datetime :start_time
+      t.integer :user_id, null: false
 
       t.timestamps
     end

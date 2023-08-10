@@ -1,38 +1,40 @@
-<%= form_with( model: @form ,url: post_records_path, method: :post) do |fb| %>
-<table class="table">
-<thead>
-  <tr>
-    <th width="60px">登録</th>
-    <th>トレーニング名</th>
-    <th>セット数</th>
-    <th>重量</th>
-    <th>レップ数(回数)</th>
-  </tr>
-</thead>
-<tbody class="bulk-registration-form">
-<%= fb.fields_for :post_records do |f| %>
-  <tr class="item">
-  <td class="text-center">
-  <%#= f.check_box :register, class: 'top10 registration-checkbox' %>
-  </td>
-  <td>
-  <%= f.text_field :training_name, class: 'form-control' %>
-  </td>
-  <td>
-  <%= f.text_field :set_count, class: 'form-control' %>
-  </td>
-  <td>
-  <%= f.text_field :weight, class: 'form-control' %>
-  </td>
-  <td>
-  <%= f.text_field :rep_count, class: 'form-control' %>
-  </td>
-</tr>
-<% end %>
-</tbody>
-</table>
-
-<div class="text-center">
-<%= fb.submit '一括登録', class: 'btn btn-primary' %>
+<div class="container">
+  <h4 class="my-5">トレーニング記録/投稿</h4>
+  <%= form_with model: @form, url: post_records_path, method: :post, local: true do |form| %>
+  <table class="table mt-4 text-center">
+    <thead>
+      <tr>
+        <th class="col-2 col-lg-1">登録</th>
+        <th class="col-4 col-lg-4">トレーニング名</th>
+        <th class="col-2 col-lg-1">セット数</th>
+        <th class="col-2 col-lg-1">重量(kg)</th>
+        <th class="col-2 col-lg-1">レップ数(回)</th>
+      </tr>
+    </thead>
+    <tbody class="bulk-registration-form">
+    <%= form.fields_for :post_records do |f| %>
+      <tr class="item">
+        <td class="col-2 col-lg-1">
+          <%= f.check_box :availability, class: 'top10 registration-checkbox' %>
+        </td>
+        <td class="col-4 col-lg-4">
+          <%= f.text_field :training_name, class: 'form-control' %>
+        </td>
+        <td class="col-2 col-lg-1">
+          <%= f.text_field :set_count, class: 'form-control' %>
+        </td>
+        <td class="col-2 col-lg-1">
+          <%= f.text_field :weight, class: 'form-control' %>
+        </td>
+        <td class="col-2 col-lg-1">
+          <%= f.text_field :rep_count, class: 'form-control' %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <%= form.submit '一括登録', class: 'btn btn-primary' %>
+  </div>
+  <% end %>
 </div>
-<% end %>

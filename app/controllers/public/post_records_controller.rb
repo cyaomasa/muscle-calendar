@@ -36,6 +36,9 @@ class Public::PostRecordsController < ApplicationController
   end
 
   def destroy
+    @post_record = PostRecord.find(params[:id])
+    @post_record.destroy
+    redirect_to post_records_path, notice: "削除が完了しました"
   end
   
   private

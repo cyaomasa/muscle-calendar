@@ -24,7 +24,7 @@
     <tr class="row">
       <td class="col-4 col-lg-2"><%= category.name %></td>
       <td class="col-3 col-lg-1"><%= link_to "編集", edit_admin_category_path(category.id), class: "btn btn-success" %></td>
-      <td class="col-3 col-lg-1"><%= link_to "削除", admin_category_path(category.id), method: :delete, class: "btn btn-danger" %></td>
+      <td class="col-3 col-lg-1"><%= link_to "削除", admin_category_path(category.id), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %></td>
     </tr>
   <% end %>
   </table>

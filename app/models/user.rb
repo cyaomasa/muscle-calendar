@@ -20,6 +20,10 @@ class User < ApplicationRecord
     end
   end
   
+  def guest_user?
+    email == GUEST_USER_EMAIL
+  end
+  
   def get_profile_image
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end

@@ -1,2 +1,22 @@
-<h1>Admin::PostRecords#show</h1>
-<p>Find me in app/views/admin/post_records/show.html.erb</p>
+<div class="container">
+    <h4 class="my-5">投稿詳細</h4>
+    <div class="row">
+      <p class="col-4 col-lg-3 border-bottom"><b>トレーニング名:</b></p>
+      <p class="col-4 col-lg-3 border-bottom"><%= @post_record.training_name %></p>
+    </div>
+    <div class="row">
+      <p class="col-4 col-lg-3 border-bottom"><b>部位:</b></p>
+      <p class="col-4 col-lg-3 border-bottom"></p>
+    </div>
+    <div class="row">
+      <p class="col-4 col-lg-3 border-bottom"><b>セット数:</b></p>
+      <p class="col-4 col-lg-3 border-bottom"><%= @post_record.set_count %>セット</p>
+    </div>
+    <div class="row">
+      <p class="col-4 col-lg-3 border-bottom"><b>1セット:</b></p>
+      <p class="col-4 col-lg-3 border-bottom"><%= @post_record.rep_count %>回/<%= @post_record.weight %>kg</p>
+    </div>
+    <div class="ml-5 mt-2 pl-5">
+      <span class="ml-5"><%= link_to "削除", admin_post_record_path(params[:id]), method: :delete, class: 'btn btn-danger', "data-confirm" => "本当に削除しますか？" %></span>
+    </div>
+</div>

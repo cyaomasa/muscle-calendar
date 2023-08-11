@@ -1,2 +1,32 @@
-<h1>Admin::PostRecords#index</h1>
-<p>Find me in app/views/admin/post_records/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h4 class="my-5">トレーニング記録/投稿一覧</h4>
+    <table class="table mt-4 text-center">
+      <thead>
+        <tr class="row">
+          <th class="col-4 col-lg-2">投稿日</th>
+          <th class="col-3 col-lg-2">投稿者名</th>
+          <th class="col-4 col-lg-3">トレーニング名</th>
+          <th class="col-1 col-lg-1"></th>
+        </tr>
+      </thead>
+      <tbody class="bulk-registration-form">
+      <% @post_records.each do |post_record| %>
+        <tr class="row">
+          <td class="col-4 col-lg-2">
+            <%= post_record.created_at.strftime('%Y/%m/%d') %>
+          </td>
+          <td class="col-3 col-lg-2">
+            <%= post_record.user.name %>
+          </td>
+          <td class="col-4 col-lg-3">
+            <%= link_to admin_post_record_path(post_record.id) do %>
+              <%= post_record.training_name %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

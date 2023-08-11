@@ -19,7 +19,7 @@
         <% @post_records.each do |post_record| %>
           <tr class="row">
             <td class="col-4 col-lg-2">
-              <%= post_record.created_at.strftime('%Y/%m/%d') %>
+              <%= post_record.start_time.strftime('%Y/%m/%d') %>
             </td>
             <td class="col-3 col-lg-2">
             <%= link_to post_record_path(post_record.id) do %>

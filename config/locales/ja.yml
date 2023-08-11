@@ -1,7 +1,11 @@
 ja:
+  simple_calendar:
+    previous: "<<"
+    next: ">>"
   activerecord:
     attributes:
       category:
         name: カテゴリ名
       user:
         name: ユーザー名
+      

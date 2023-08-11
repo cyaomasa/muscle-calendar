@@ -15,13 +15,13 @@ class Form::PostRecordCollection < Form::Base
     PostRecord.transaction do
       self.post_records.map do |post_record|
         if post_record.availability # ここでチェックボックスにチェックを入れている投稿のみが保存される
-        post_record.user_id = user.id
+          post_record.user_id = user.id
           post_record.save
         end
       end
     end
-      return true
+    true
     rescue => e
-      return false
+      false
   end
 end

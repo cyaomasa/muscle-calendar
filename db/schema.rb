@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2023_08_10_062320) do
     t.integer "weight"
     t.integer "rep_count"
     t.integer "user_id", null: false
+    t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "availability"

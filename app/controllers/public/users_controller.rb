@@ -18,15 +18,14 @@ class Public::UsersController < ApplicationController
   end
   
   private
-  
-  def ensure_guest_user
-    @user = User.find(params[:id])
-    if @user.email == "guest@example.com"
-      redirect_to users_path , notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
+    def ensure_guest_user
+      @user = User.find(params[:id])
+      if @user.email == "guest@example.com"
+        redirect_to users_path, notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
+      end
     end
-  end
   
-  def user_params
-    params.require(:user).permit(:name, :favorite_event, :profile_image)
-  end
+    def user_params
+      params.require(:user).permit(:name, :favorite_event, :profile_image)
+    end
 end

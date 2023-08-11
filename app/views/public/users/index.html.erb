@@ -1,2 +1,31 @@
-<h1>Public::Users#index</h1>
-<p>Find me in app/views/public/users/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-8 col-lg-3 mt-5 mr-5">
+      <h4 class="mb-4">ユーザー情報</h4>
+      <%= render 'public/users/info', user: current_user %>
+    </div>
+    <div class="col-8">
+      <h4 class="my-5">ユーザー一覧</h4>
+      <table class='table'>
+  <thead>
+    <tr>
+      <th class="col-4 col-lg-2">プロフィール画像</th>
+      <th class="col-4 col-lg-2">ユーザー名</th>
+      <th class="col-4 col-lg-2">得意種目</th>
+      <th class="col-4 col-lg-2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td class="col-4 col-lg-2"><%= image_tag user.get_profile_image, size: '70x70' %></td>
+        <td class="col-4 col-lg-2"><%= user.name %></td>
+        <td class="col-4 col-lg-2"><%= user.favorite_event %></td>
+        <td class="col-4 col-lg-2"><%= link_to "詳細", user_path(user) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>

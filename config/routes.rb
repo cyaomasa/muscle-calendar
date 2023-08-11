@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resources :users, only: [:index, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update]
     resources :post_records do
       resources :favorites, only: [:index, :create, :destroy]
       resources :comments, only: [:create, :destroy]

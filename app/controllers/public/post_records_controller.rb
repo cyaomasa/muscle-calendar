@@ -1,4 +1,5 @@
 class Public::PostRecordsController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
   
   def new
     @form = Form::PostRecordCollection.new
@@ -46,6 +47,15 @@ class Public::PostRecordsController < ApplicationController
   end
   
   private
+  
+    def is_matching_login_user
+      post_record = PostRecord.find(params[:id])
+      user = post_record.user
+      unless user.id == current_user.id
+        redirect_to post_records_path
+      end
+    end
+      
     def post_record_params
       params.require(:post_record).permit(:training_name, :set_count, :weight, :rep_count, :start_time)
     end

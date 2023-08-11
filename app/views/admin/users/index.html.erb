@@ -1,3 +1,25 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
-<%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+<div class="container">
+  <div class="row">
+      <h4 class="my-5">ユーザー一覧</h4>
+      <table class='table'>
+  <thead>
+    <tr>
+      <th class="col-3 col-lg-2">プロフィール画像</th>
+      <th class="col-3 col-lg-2">ユーザー名</th>
+      <th class="col-3 col-lg-2">得意種目</th>
+      <th class="col-4 col-lg-2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td class="col-3 col-lg-2"><%= image_tag user.get_profile_image, size: '70x70' %></td>
+        <td class="col-3 col-lg-2"><%= user.name %></td>
+        <td class="col-3 col-lg-2"><%= user.favorite_event %></td>
+        <td class="col-4 col-lg-2"><%= link_to "削除", admin_user_path(user), method: :delete, class: 'btn btn-danger', "data-confirm" => "本当に削除しますか？" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  </div>
+</div>

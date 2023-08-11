@@ -1,10 +1,13 @@
 class Admin::UsersController < ApplicationController
+  
   def index
-  end
-
-  def show
+    @users = User.all
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "削除が完了しました。"
+    redirect_to request.referer
   end
 end

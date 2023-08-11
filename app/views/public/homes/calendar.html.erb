@@ -1,0 +1,4 @@
+<%= link_to "記録する", new_post_record_path, class: 'btn btn-primary' %>
+<div id="calendar">
+  <%= render 'calendar', post_records: @post_records %>
+</div>

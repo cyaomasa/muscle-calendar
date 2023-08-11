@@ -1,11 +1,4 @@
 <%= link_to "記録する", new_post_record_path, class: 'btn btn-primary' %>
-<div>
-<%= month_calendar events: @post_records do |date, post_records| %>
-  <%= date.day %>
-  <% post_records.each do |post_record| %>
-  <div>
-    <%= link_to post_record.training_name, post_record_path(post_record) %>
-  </div>
-  <% end %>
-<% end %>
+<div id="calendar">
+  <%= render 'calendar', post_records: @post_records %>
 </div>

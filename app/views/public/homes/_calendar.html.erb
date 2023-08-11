@@ -1,0 +1,8 @@
+<%= month_calendar events: post_records do |date, post_records| %>
+  <%= date.day %>
+  <% post_records.each do |post_record| %>
+  <div>
+    <%= link_to post_record.training_name, post_record_path(post_record) %>
+  </div>
+  <% end %>
+<% end %>

@@ -85,11 +85,6 @@ ActiveRecord::Schema.define(version: 2023_08_10_062320) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "post_record_collections", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "post_records", force: :cascade do |t|
     t.string "training_name"
     t.integer "set_count"
@@ -97,6 +92,7 @@ ActiveRecord::Schema.define(version: 2023_08_10_062320) do
     t.integer "rep_count"
     t.integer "user_id", null: false
     t.datetime "start_time"
+    t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "availability"

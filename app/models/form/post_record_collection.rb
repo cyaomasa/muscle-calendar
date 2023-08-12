@@ -14,7 +14,7 @@ class Form::PostRecordCollection < Form::Base
   def save(user)
     PostRecord.transaction do
       self.post_records.map do |post_record|
-        if post_record.availability # ここでチェックボックスにチェックを入れている投稿のみが保存される
+        if post_record.availability # チェックボックスにチェックを入れている投稿のみが保存される
           post_record.user_id = user.id
           post_record.save
         end

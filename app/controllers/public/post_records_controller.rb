@@ -57,12 +57,12 @@ class Public::PostRecordsController < ApplicationController
     end
       
     def post_record_params
-      params.require(:post_record).permit(:training_name, :set_count, :weight, :rep_count, :start_time)
+      params.require(:post_record).permit(:training_name, :set_count, :weight, :rep_count, :start_time, :category_id)
     end
   
     def post_record_collection_params
       params.require(:form_post_record_collection)
-        .permit(post_records_attributes: [:training_name, :set_count, :weight, :rep_count, :availability, :start_time, :category_ids])
+        .permit(post_records_attributes: [:training_name, :set_count, :weight, :rep_count, :availability, :start_time, :category_id])
     end
   
 end

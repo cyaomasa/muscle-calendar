@@ -7,6 +7,7 @@ class CreatePostRecords < ActiveRecord::Migration[6.1]
       t.integer :rep_count
       t.integer :user_id, null: false
       t.datetime :start_time
+      t.integer :category_id, null: false
 
       t.timestamps
     end

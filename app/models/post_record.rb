@@ -1,8 +1,7 @@
 class PostRecord < ApplicationRecord
     
   belongs_to :user
-  has_many :post_record_categories
-  has_many :categories, through: :post_record_categories
+  belongs_to :category, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   

@@ -5,8 +5,9 @@
     <thead>
       <tr>
         <th class="col-2 col-lg-1">登録</th>
-        <th class="col-2 col-lg-1">トレーニング日</th>
-        <th class="col-4 col-lg-4">トレーニング名</th>
+        <th class="col-1 col-lg-1">トレーニング日</th>
+        <th class="col-1 col-lg-1">部位</th>
+        <th class="col-4 col-lg-3">トレーニング名</th>
         <th class="col-2 col-lg-1">セット数</th>
         <th class="col-2 col-lg-1">重量(kg)</th>
         <th class="col-2 col-lg-1">レップ数(回)</th>
@@ -18,10 +19,13 @@
         <td class="col-2 col-lg-1">
           <%= f.check_box :availability, class: 'top10 registration-checkbox' %>
         </td>
-        <td class="form-group col-2 col-lg-1">
+        <td class="form-group col-1 col-lg-1">
           <%= f.date_field :start_time, class: 'form-control' %>
         </td>
-        <td class="col-4 col-lg-4">
+        <td class="form-group col-1 col-lg-1">
+          <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+        </td>
+        <td class="col-4 col-lg-3">
           <%= f.text_field :training_name, class: 'form-control' %>
         </td>
         <td class="col-2 col-lg-1">

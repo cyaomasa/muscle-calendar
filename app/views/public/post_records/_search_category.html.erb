@@ -1,0 +1,17 @@
+<table class="border border-dark mx-auto mt-3 w-100">
+  <tr class="border-bottom border-dark text-center">
+    <th>カテゴリ検索</th>
+  </tr>
+    <% categories.each do |category| %>
+    <tr>
+      <td class="text-left pl-3 py-1">
+        <%= link_to(category_path(category.id), class:"text-dark") do %>
+          <%= category.name %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+    <tr>
+      <td class="pb-5"><p></p></td>
+    </tr>
+</table>

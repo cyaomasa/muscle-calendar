@@ -5,13 +5,8 @@
       <%= render 'public/users/info', user: current_user %>
     </div>
     <div class="col-8">
-      <h4 class="my-5">トレーニング記録/投稿一覧</h4>
-      
-      <div>
-        <%= render 'search_category', categories: @categories %>
-      </div>
-      
-      
+      <h4 class="my-5"><%= @category.name %>のトレーニング一覧</h4>
+      <p class="mt-2">（全<%= @post_records.count %>件）</p>
       <table class="table mt-4 text-center">
         <thead>
           <tr class="row">

@@ -7,6 +7,7 @@ class Public::PostRecordsController < ApplicationController
 
   def index
     @post_records = PostRecord.order(created_at: :desc)
+    @categories = Category.all
   end
 
   def show

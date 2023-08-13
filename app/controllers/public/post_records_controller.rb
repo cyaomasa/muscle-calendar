@@ -12,6 +12,7 @@ class Public::PostRecordsController < ApplicationController
 
   def show
     @post_record = PostRecord.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit

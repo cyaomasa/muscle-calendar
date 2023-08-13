@@ -1,0 +1,16 @@
+<h5 class="mt-3">コメント一覧(<%= post_record.comments.count %>)</h5>
+<div>
+  <% if post_record.comments.present? %>
+  <% post_record.comments.each do |post_comment| %>
+    <%= link_to user_path(post_comment.user_id) do %>
+      <%= post_comment.user.name %>
+    <% end %>
+    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+    <% if post_comment.user == current_user %>
+      <%= link_to "削除", post_record_comment_path(post_comment.post_record, post_comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} %>
+    <% end %>
+  <% end %>
+  <% else %>
+    <p>コメントはまだありません</p>
+  <% end %>
+</div>

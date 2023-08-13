@@ -1,13 +1,17 @@
-<% if post_record.favorited_by?(current_user) %>
-  <p>
-    <%= link_to post_record_favorite_path(post_record, post_record.favorites), class: "like-link", method: :delete, remote: true do %>
-      ♡
+<div id="favoriteWrapper">
+  <div id="favorite_<%= post_record.id %>">
+    <% if post_record.favorited_by?(current_user) %>
+      <p>
+        <%= link_to post_record_favorite_path(post_record, post_record.favorites), class: "like-link", method: :delete do %>
+          ♥
+        <% end %>
+      </p>
+    <% else %>
+      <p>
+        <%= link_to post_record_favorites_path(post_record), class: "like-link", method: :post do %>
+          ♡
+        <% end %>
+      </p>
     <% end %>
-  </p>
-<% else %>
-  <p>
-    <%= link_to post_record_favorites_path(post_record), class: "like-link", method: :post, remote: true do %>
-      ♥
-    <% end %>
-  </p>
-<% end %>
+  </div>
+</div>

@@ -1,1 +1,1 @@
-$('#favorite_<%= @post_record.id %>').html("<%= j(render partial: 'favorites/favorite', locals: { post_record: @post_record }) %>");
+$('favorite_<%= @post_record.id %>').remove();

@@ -1,23 +1,20 @@
 class Public::FavoritesController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy]
-  before_action :post_record_params, only: [:create, :destroy]
 
   def index
   end
 
   def create
-    Favorite.create(user_id: current_user.id, post_record_id: @post_record.id)
+    post_record = PostRecord.find(params[:post_record_id])
+    favorite = current_user.favorites.new(post_record_id: post_record.id)
+    favorite.save
+    redirect_to post_record_path(post_record)
   end
 
   def destroy
-    favorite = Favorite.find_by(user_id: current_user.id, post_record_id: @post_record.id)
+    post_record = PostRecord.find(params[:post_record_id])
+    favorite = current_user.favorites.find_by(post_record_id: post_record.id)
     favorite.destroy
-  end
-  
-  private
-  
-  def post_record_params
-    @post_record = PostRecord.find(params[:post_record_id])
+    redirect_to post_record_path(post_record)
   end
   
 end

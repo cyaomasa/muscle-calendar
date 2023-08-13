@@ -27,7 +27,7 @@
       </td>
       <% if post_record.user_id == current_user.id %>
       <td class="col-1 col-lg-1">
-        ♥
+        <%= render partial: "public/favorites/favorite", locals: { post_record: post_record } %>
       </td>
       <% end %>
     </tr>

@@ -7,14 +7,14 @@ class Public::FavoritesController < ApplicationController
     post_record = PostRecord.find(params[:post_record_id])
     favorite = current_user.favorites.new(post_record_id: post_record.id)
     favorite.save
-    redirect_to post_record_path(post_record)
+    redirect_to request.referer
   end
 
   def destroy
     post_record = PostRecord.find(params[:post_record_id])
     favorite = current_user.favorites.find_by(post_record_id: post_record.id)
     favorite.destroy
-    redirect_to post_record_path(post_record)
+    redirect_to request.referer
   end
   
 end

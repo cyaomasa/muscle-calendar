@@ -6,8 +6,13 @@ class Admin::PostRecordsController < ApplicationController
 
   def show
     @post_record = PostRecord.find(params[:id])
+    @comment = Comment.new
   end
 
   def destroy
+    @post_record = PostRecord.find(params[:id])
+    @post_record.destroy
+    flash[:notice] = "削除が完了しました。"
+    redirect_to admin_post_records_path
   end
 end

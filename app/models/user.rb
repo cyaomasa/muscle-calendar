@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :post_records, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorites_post_records, through: :favorites, source: :post_record
   
   validates :name, presence: true
   
@@ -27,4 +28,5 @@ class User < ApplicationRecord
   def get_profile_image
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
+  
 end

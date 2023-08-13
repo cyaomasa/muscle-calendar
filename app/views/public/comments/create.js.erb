@@ -1,2 +1,26 @@
-$('#post-comments').html("<%= j(render 'public/comments/post_comments', post_record: @post_record) %>");
+$('#commentWrapper').append(`
+  <div id="comment_<%= @comment.id %>">
+    <table class="mb-3 border-bottom">
+      <tr>
+        <td>
+        <%= link_to user_path(@comment.user_id) do %>
+          <%= @comment.user.name %>：
+        <% end %>
+        </td>
+        <td><%= @comment.comment %></td>
+      </tr>
+      <tr>
+        <td>投稿日：</td>
+        <td>
+          <%= @comment.created_at.strftime('%Y/%m/%d') %>
+          <% if @comment.user == current_user %>
+          <%= link_to post_record_comment_path(@comment.post_record, @comment), method: :delete, remote: true, data: {"turbolinks" => false} do %>
+            <i class="fa-regular fa-trash-can"></i>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+`);
 $("textarea").val('');

@@ -1,28 +1,22 @@
 <div class="container">
-  <div class="row">
-    <div class="col-8 col-lg-3 mt-5 mr-5">
-      <h4 class="mb-4">ユーザー情報</h4>
-      <%= render 'public/users/info', user: current_user %>
+  <div>
+    <h4 class="my-5">トレーニング詳細</h4>
+    <%= render 'show', post_record: @post_record %>
+    <div id="favorite_<%= @post_record.id %>">
+      <%= render "public/favorites/favorite", post_record: @post_record %>
     </div>
-    <div class="col-8 col-lg-8">
-      <h4 class="my-5">トレーニング詳細</h4>
-      <%= render 'show', post_record: @post_record %>
-      <div id="favorite_<%= @post_record.id %>">
-        <%= render "public/favorites/favorite", post_record: @post_record %>
-      </div>
-      <div class="ml-5 mt-2 pl-5">
-        <% if @post_record.user_id == current_user.id %>
-          <span class="mr-2"><%= link_to "編集", edit_post_record_path(params[:id]), class: 'btn btn-primary' %></span>
-          <span class="ml-2"><%= link_to "削除", post_record_path(params[:id]), method: :delete, class: 'btn btn-danger', "data-confirm" => "本当に削除しますか？" %></span>
-        <% end %>
-      </div>
+    <div class="ml-5 mt-2 pl-5">
+      <% if @post_record.user_id == current_user.id %>
+        <span class="mr-2"><%= link_to "編集", edit_post_record_path(params[:id]), class: 'btn btn-primary' %></span>
+        <span class="ml-2"><%= link_to "削除", post_record_path(params[:id]), method: :delete, class: 'btn btn-danger', "data-confirm" => "本当に削除しますか？" %></span>
+      <% end %>
+    </div>
 
-      <div class="my-4">
-        <%= render 'public/comments/post_comments', post_record: @post_record %>
-      </div>
-      <div>
-        <%= render 'public/comments/form_comments', post_record: @post_record, comment: @comment %>
-      </div>
+    <div class="my-4">
+      <%= render 'public/comments/post_comments', post_record: @post_record %>
+    </div>
+    <div>
+      <%= render 'public/comments/form_comments', post_record: @post_record, comment: @comment %>
     </div>
   </div>
 </div>

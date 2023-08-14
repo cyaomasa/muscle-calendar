@@ -8,7 +8,7 @@ class Public::UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @post_records = @user.post_records
+    @post_records = current_user.post_records.all.order(created_at: :desc)
   end
 
   def edit
@@ -22,6 +22,12 @@ class Public::UsersController < ApplicationController
       redirect_to users_path
     else
       render :edit
+    end
+    
+    def favorites
+      @user = User.find(params[:id])
+      favorites = Favorite.where(user_id: @user.id).pluck(:post_record_id)
+      @favorite_post_records = PostRecord.find(favorites)
     end
   end
   
@@ -43,4 +49,5 @@ class Public::UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :favorite_event, :profile_image)
     end
+    
 end

@@ -25,12 +25,10 @@
         <%= post_record.training_name %>
       <% end %>
       </td>
-      <% if post_record.user_id == current_user.id %>
-      <td id="favorite_<%= post_record.id %>">
-        <%= render "public/favorites/favorite", post_record: post_record %>
+      <td class="col-1 col-lg-1">
+        <%= post_record.favorites.count %>件のいいね
       </td>
-      <% end %>
     </tr>
   <% end %>
   </tbody>
-</table>
+  </table>

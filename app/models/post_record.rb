@@ -4,7 +4,6 @@ class PostRecord < ApplicationRecord
   belongs_to :category, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :favorites_users, through: :favorites, source: :user
   
   validates :training_name, presence: true
   validates :set_count, presence: true

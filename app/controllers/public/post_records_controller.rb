@@ -49,7 +49,6 @@ class Public::PostRecordsController < ApplicationController
   end
   
   private
-  
     def is_matching_login_user
       post_record = PostRecord.find(params[:id])
       user = post_record.user

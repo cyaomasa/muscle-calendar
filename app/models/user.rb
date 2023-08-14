@@ -8,7 +8,6 @@ class User < ApplicationRecord
   has_many :post_records, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :favorites_post_records, through: :favorites, source: :post_record
   
   validates :name, presence: true
   

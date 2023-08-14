@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :post_records, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorite_post_records, through: :favorites, source: :post_record
   
   validates :name, presence: true
   
@@ -32,4 +33,15 @@ class User < ApplicationRecord
     @users = User.where('name LIKE ?', '%'+word+'%')
   end
   
+  def favorite(post_record)
+    favorites.find_or_create_by(post_record_id: post_record.id)
+  end
+  
+  def unfavorite(post_record)
+    favorites.find_by(post_record_id: post_record.id)&.destroy
+  end
+  
+  def favorite?(post_record)
+    favorite_post_records.include?(post_record)
+  end
 end

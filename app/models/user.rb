@@ -28,4 +28,8 @@ class User < ApplicationRecord
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
   
+  def self.looks(word)
+    @users = User.where('name LIKE ?', '%'+word+'%')
+  end
+  
 end

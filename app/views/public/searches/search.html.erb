@@ -1,0 +1,14 @@
+<div class="container">
+    <% if @range == "ユーザー" %>
+    <h4 class="mt-5">"<%= @word %>" の検索結果</h4>
+    <h6 class="my-3">(全<%= @users.count %>件)</h6>
+      <%= render 'public/users/index', users: @users %>
+    <% else %>
+    <h4 class="mt-5">"<%= @word %>" の検索結果</h4>
+    <h6 class="my-3">(全<%= @post_records.count %>件)</h6></br>
+    <div>
+      <%= render 'public/post_records/search_category', categories: @categories %>
+     </div>
+      <%= render 'public/post_records/index', post_records: @post_records %>
+    <% end %>
+</div>

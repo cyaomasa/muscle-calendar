@@ -15,5 +15,9 @@ class PostRecord < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
+  
+  def self.looks(word)
+    @post_records = PostRecord.where('training_name LIKE ?', '%'+word+'%')
+  end
     
 end

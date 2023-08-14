@@ -6,26 +6,7 @@
     </div>
     <div class="col-8">
       <h4 class="my-5">ユーザー一覧</h4>
-      <table class='table'>
-  <thead>
-    <tr>
-      <th class="col-4 col-lg-2">プロフィール画像</th>
-      <th class="col-4 col-lg-2">ユーザー名</th>
-      <th class="col-4 col-lg-2">得意種目</th>
-      <th class="col-4 col-lg-2"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td class="col-4 col-lg-2"><%= image_tag user.get_profile_image, size: '70x70' %></td>
-        <td class="col-4 col-lg-2"><%= user.name %></td>
-        <td class="col-4 col-lg-2"><%= user.favorite_event %></td>
-        <td class="col-4 col-lg-2"><%= link_to "詳細", user_path(user), class: 'btn btn-primary' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <%= render 'index', users: @users %>
     </div>
   </div>
 </div>

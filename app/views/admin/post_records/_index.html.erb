@@ -1,7 +1,7 @@
-<table class="table mt-4 text-center">
+<table class="table text-center">
   <thead>
     <tr class="row">
-      <th class="col-4 col-lg-3">トレーニング日</th>
+      <th class="col-4 col-lg-3">投稿日</th>
       <th class="col-2 col-lg-2">投稿者名</th>
       <th class="col-2 col-lg-2">部位</th>
       <th class="col-3 col-lg-3">トレーニング名</th>
@@ -12,7 +12,7 @@
   <% post_records.each do |post_record| %>
     <tr class="row">
       <td class="col-4 col-lg-3">
-        <%= post_record.start_time.strftime('%Y/%m/%d') %>
+        <%= post_record.created_at.strftime('%Y/%m/%d') %>
       </td>
       <td class="col-2 col-lg-2">
         <%= post_record.user.name %>
@@ -21,15 +21,11 @@
         <%= post_record.category.name %>
       </td>
       <td class="col-3 col-lg-3">
-      <%= link_to post_record_path(post_record.id) do %>
+      <%= link_to admin_post_record_path(post_record.id) do %>
         <%= post_record.training_name %>
       <% end %>
       </td>
-      <td class="col-1 col-lg-1">
-        <%= post_record.favorites.count %>件のいいね
-      </td>
-    </tr>
-  <% end %>
+        </tr>
+      <% end %>
   </tbody>
-  </table>
-  
+</table>

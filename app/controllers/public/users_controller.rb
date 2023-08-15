@@ -1,6 +1,7 @@
 class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
   before_action :is_matching_login_user, only: [:edit, :update]
+  before_action :set_user, only: [:favorites]
   
   def index
     @users = User.all
@@ -9,6 +10,8 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @post_records = current_user.post_records.all.order(created_at: :desc)
+    favorites = Favorite.where(user_id: @user.id).pluck(:post_record_id)
+    @favorite_post_records = PostRecord.find(favorites)
   end
 
   def edit
@@ -23,15 +26,10 @@ class Public::UsersController < ApplicationController
     else
       render :edit
     end
-    
-    def favorites
-      @user = User.find(params[:id])
-      favorites = Favorite.where(user_id: @user.id).pluck(:post_record_id)
-      @favorite_post_records = PostRecord.find(favorites)
-    end
   end
   
   private
+  
     def ensure_guest_user
       @user = User.find(params[:id])
       if @user.guest_user?
@@ -50,4 +48,8 @@ class Public::UsersController < ApplicationController
       params.require(:user).permit(:name, :favorite_event, :profile_image)
     end
     
+    def set_user
+      @user = User.find(params[:id])
+    end
+  
 end

@@ -22,9 +22,6 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :users, only: [:index, :show, :edit, :update] do
-      member do
-        get :favorites
-      end
     end
     resources :post_records do
       resource :favorites, only: [:create, :destroy]

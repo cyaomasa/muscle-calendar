@@ -1,4 +1,5 @@
 <table class="table mt-4 text-center">
+  <% if favorite_post_records.present? %>
   <thead>
     <tr class="row">
       <th class="col-4 col-lg-3">トレーニング日</th>
@@ -8,9 +9,9 @@
       <th class="col-1 col-lg-1"></th>
     </tr>
   </thead>
-  <% if @favorite_post_records.present? %>
+  
   <tbody class="bulk-registration-form">
-  <% post_records.each do |post_record| %>
+  <% favorite_post_records.each do |post_record| %>
     <tr class="row">
       <td class="col-4 col-lg-3">
         <%= post_record.start_time.strftime('%Y/%m/%d') %>
@@ -32,5 +33,7 @@
     </tr>
   <% end %>
   </tbody>
+  <% else %>
+    <h5>"いいねをした投稿がありません"</h5>
   <% end %>
 </table>

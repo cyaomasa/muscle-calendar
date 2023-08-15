@@ -23,7 +23,7 @@ class Public::PostRecordsController < ApplicationController
     @form = Form::PostRecordCollection.new(post_record_collection_params)
     if @form.save(current_user)
       flash[:notice] = "登録が完了しました。"
-      redirect_to post_records_path
+      redirect_to homes_calendar_path
     else
       flash.now[:alert] = "登録に失敗しました。"
       render :new

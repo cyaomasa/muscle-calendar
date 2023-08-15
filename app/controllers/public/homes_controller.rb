@@ -4,6 +4,6 @@ class Public::HomesController < ApplicationController
   end
   
   def calendar
-    @post_records = PostRecord.all
+    @post_records = current_user.post_records.all.all
   end
 end

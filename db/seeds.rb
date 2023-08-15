@@ -10,3 +10,31 @@ Admin.create!(
     email: "admin-muscle@ggg",
     password: "111111"
   )
+  
+Category.create!(
+    name: "胸"
+  )
+  Category.create!(
+    name: "肩"
+  )
+  Category.create!(
+    name: "背中"
+  )
+  Category.create!(
+    name: "腕"
+  )
+  Category.create!(
+    name: "腹"
+  )
+  Category.create!(
+    name: "脚"
+  )
+  Category.create!(
+    name: "上半身"
+  )
+  Category.create!(
+    name: "下半身"
+  )
+  Category.create!(
+    name: "その他"
+  )

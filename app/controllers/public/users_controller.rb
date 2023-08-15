@@ -9,7 +9,7 @@ class Public::UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @post_records = current_user.post_records.all.order(created_at: :desc)
+    @post_records = @user.post_records.all.order(created_at: :desc)
     favorites = Favorite.where(user_id: @user.id).pluck(:post_record_id)
     @favorite_post_records = PostRecord.find(favorites)
   end
@@ -29,7 +29,6 @@ class Public::UsersController < ApplicationController
   end
   
   private
-  
     def ensure_guest_user
       @user = User.find(params[:id])
       if @user.guest_user?

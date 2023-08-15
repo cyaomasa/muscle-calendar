@@ -30,7 +30,7 @@ class User < ApplicationRecord
   end
   
   def self.looks(word)
-    @users = User.where('name LIKE ?', '%'+word+'%')
+    @users = User.where('name LIKE ?', '%' + word + '%')
   end
   
   def favorite(post_record)

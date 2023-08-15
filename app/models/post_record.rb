@@ -17,7 +17,7 @@ class PostRecord < ApplicationRecord
   end
   
   def self.looks(word)
-    @post_records = PostRecord.where('training_name LIKE ?', '%'+word+'%')
+    @post_records = PostRecord.where('training_name LIKE ?', '%' + word + '%')
   end
     
 end

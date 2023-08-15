@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
     end
     resources :categories, only: [:index, :create, :edit, :update, :destroy]
-    get 'search'=> 'searches#search'
+    get 'search' => 'searches#search'
   end
 
   scope module: :public do
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     end
     resources :categories, only: [:show]
     get "homes/calendar" => "homes#calendar"
-    get 'search'=> 'searches#search'
+    get 'search' => 'searches#search'
   end
   
   devise_scope :user do

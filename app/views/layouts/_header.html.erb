@@ -1,85 +1,82 @@
-<header class="border-bottom border-dark mb-2">
-  <nav class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd;">
-    <div class="container-fluid">
-      <h5 class="navbar-brand mr-5">ロゴ</h5>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse row" id="navbarNavDropdown">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        <% if request.fullpath.include? "/admin" %>
-          <% if admin_signed_in? %>
-            <li class="nav-item mr-3 mb-2 mb-md-0">
-              <%= link_to admin_post_records_path, class: "btn btn-sm btn-outline-dark" do %>
-                <i class="fa-solid fa-book-open fa-xl"></i>
-              <% end %>
-            </li>
-            <li class="nav-item mr-3 mb-2 mb-md-0">
-              <%= link_to admin_users_path, class: "btn btn-sm btn-outline-dark" do %>
-                <i class="fa-regular fa-address-book fa-xl"></i>
-              <% end %>
-            </li>
-            <li class="nav-item mr-3 mb-2 mb-md-0">
-              <%= link_to admin_categories_path, class: "btn btn-sm btn-outline-dark" do %>
-                <i class="fa-solid fa-tags fa-xl"></i>
-              <% end %>
-            </li>
-            <li class="nav-item mr-3">
-              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-sm btn-outline-dark" %>
-            </li>
-          <% else %>
-            <li class="nav-item mr-3 mb-2 mb-md-0">
-              <%= link_to "新規登録", new_user_registration_path, class: "btn btn-sm btn-outline-dark" %>
-            </li>
-            <li class="nav-item mr-3 mb-2 mb-md-0">
-              <%= link_to "ログイン", new_admin_session_path, class: "btn btn-sm btn-outline-dark" %>
-            </li>
-          <% end %>
+<nav class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <h5 class="navbar-brand mr-5">ロゴ</h5>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse row" id="navbarNavDropdown">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+      <% if request.fullpath.include? "/admin" %>
+        <% if admin_signed_in? %>
+          <li class="nav-item mr-3 mb-2 mb-md-0">
+            <%= link_to admin_post_records_path, class: "btn btn-sm btn-outline-dark" do %>
+              <i class="fa-solid fa-book-open fa-xl"></i>
+            <% end %>
+          </li>
+          <li class="nav-item mr-3 mb-2 mb-md-0">
+            <%= link_to admin_users_path, class: "btn btn-sm btn-outline-dark" do %>
+              <i class="fa-regular fa-address-book fa-xl"></i>
+            <% end %>
+          </li>
+          <li class="nav-item mr-3 mb-2 mb-md-0">
+            <%= link_to admin_categories_path, class: "btn btn-sm btn-outline-dark" do %>
+              <i class="fa-solid fa-tags fa-xl"></i>
+            <% end %>
+          </li>
+          <li class="nav-item mr-3">
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-sm btn-outline-dark" %>
+          </li>
         <% else %>
-          <% if user_signed_in? %>
-            <li class="nav-item mr-3 mb-2 mb-md-0">
-              <%= link_to homes_calendar_path, class: "btn btn-sm btn-outline-dark" do %>
-                <i class="fa-regular fa-calendar-days fa-xl"></i>
-              <% end %>
-            </li>
-            <li class="nav-item mr-3 mb-2 mb-md-0">
-              <%= link_to post_records_path, class: "btn btn-sm btn-outline-dark" do %>
-                <i class="fa-solid fa-book-open fa-xl"></i>
-              <% end %>
-            </li>
-            <li class="nav-item mr-3 mb-2 mb-md-0">
-              <%= link_to users_path, class: "btn btn-sm btn-outline-dark" do %>
-                <i class="fa-regular fa-address-book fa-xl"></i>
-              <% end %>
-            </li>
-            <li class="nav-item mr-3 mb-2 mb-md-0">
-              <%= link_to user_path(current_user), class: "btn btn-sm btn-outline-dark" do %>
-                <i class="fa-regular fa-circle-user fa-xl"></i>
-              <% end %>
-            </li>
-            <li class="nav-item mr-3 mb-2 mb-md-0">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-outline-dark" %>
-            </li>
-          <% else %>
-            <li class="nav-item mr-3 mb-2 mb-md-0">
-              <%= link_to root_path, class: "btn btn-sm btn-outline-dark" do %>
-                <i class="fa-solid fa-house fa-xl"></i>
-              <% end %>
-            </li>
-            <li class="nav-item mr-3 mb-2 mb-md-0">
-              <%= link_to "新規登録", new_user_registration_path, class: "btn btn-sm btn-outline-dark" %>
-            </li>
-            <li class="nav-item mr-3 mb-2 mb-md-0">
-              <%= link_to "ログイン", new_user_session_path, class: "btn btn-sm btn-outline-dark" %>
-            </li>
-          <% end %>
+          <li class="nav-item mr-3 mb-2 mb-md-0">
+            <%= link_to "新規登録", new_user_registration_path, class: "btn btn-sm btn-outline-dark" %>
+          </li>
+          <li class="nav-item mr-3 mb-2 mb-md-0">
+            <%= link_to "ログイン", new_admin_session_path, class: "btn btn-sm btn-outline-dark" %>
+          </li>
         <% end %>
-          <div class="search">
-            <%= render 'layouts/search_form' %>
-          </div>
-        </ul>
-      </div>
+      <% else %>
+        <% if user_signed_in? %>
+          <li class="nav-item mr-3 mb-2 mb-md-0">
+            <%= link_to homes_calendar_path, class: "btn btn-sm btn-outline-dark" do %>
+              <i class="fa-regular fa-calendar-days fa-xl"></i>
+            <% end %>
+          </li>
+          <li class="nav-item mr-3 mb-2 mb-md-0">
+            <%= link_to post_records_path, class: "btn btn-sm btn-outline-dark" do %>
+              <i class="fa-solid fa-book-open fa-xl"></i>
+            <% end %>
+          </li>
+          <li class="nav-item mr-3 mb-2 mb-md-0">
+            <%= link_to users_path, class: "btn btn-sm btn-outline-dark" do %>
+              <i class="fa-regular fa-address-book fa-xl"></i>
+            <% end %>
+          </li>
+          <li class="nav-item mr-3 mb-2 mb-md-0">
+            <%= link_to user_path(current_user), class: "btn btn-sm btn-outline-dark" do %>
+              <i class="fa-regular fa-circle-user fa-xl"></i>
+            <% end %>
+          </li>
+          <li class="nav-item mr-3 mb-2 mb-md-0">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-outline-dark" %>
+          </li>
+        <% else %>
+          <li class="nav-item mr-3 mb-2 mb-md-0">
+            <%= link_to root_path, class: "btn btn-sm btn-outline-dark" do %>
+              <i class="fa-solid fa-house fa-xl"></i>
+            <% end %>
+          </li>
+          <li class="nav-item mr-3 mb-2 mb-md-0">
+            <%= link_to "新規登録", new_user_registration_path, class: "btn btn-sm btn-outline-dark" %>
+          </li>
+          <li class="nav-item mr-3 mb-2 mb-md-0">
+            <%= link_to "ログイン", new_user_session_path, class: "btn btn-sm btn-outline-dark" %>
+          </li>
+        <% end %>
+      <% end %>
+        <div class="d-flex">
+          <%= render 'layouts/search_form' %>
+        </div>
+      </ul>
     </div>
-  </nav>
-</header>
+  </div>
+</nav>

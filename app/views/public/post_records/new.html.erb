@@ -20,7 +20,7 @@
           <%= f.check_box :availability, class: 'top10 registration-checkbox' %>
         </td>
         <td class="form-group col-1 col-lg-1">
-          <%= f.date_field :start_time, class: 'form-control' %>
+          <%= f.date_field :start_time, value:Time.now.strftime("%Y-%m-%d"), class: 'form-control' %>
         </td>
         <td class="form-group col-1 col-lg-1">
           <%= f.collection_select(:category_id, Category.all, :id, :name) %>

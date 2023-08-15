@@ -2,5 +2,8 @@
   <div class="row">
     <h4 class="my-5">ユーザー一覧</h4>
     <%= render 'index', users: @users %>
+    <div class="offset-5">
+      <p><%= paginate @users, theme: 'twitter-bootstrap-4' %></p>
+    </div>
   </div>
 </div>

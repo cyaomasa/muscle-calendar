@@ -7,6 +7,9 @@
     <div class="col-8">
       <h4 class="my-5">トレーニング記録/投稿一覧</h4>
       <%= render 'user_post_records', post_records: @post_records %>
+    <div class="offset-4">
+      <p><%= paginate @post_records, theme: 'twitter-bootstrap-4' %></p>
+    </div>
       <h4 class="my-5">いいねした投稿一覧</h4>
       <%= render 'favorite_post_records', favorite_post_records: @favorite_post_records %>
     </div>

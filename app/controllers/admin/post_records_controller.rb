@@ -1,7 +1,7 @@
 class Admin::PostRecordsController < ApplicationController
   
   def index
-    @post_records = PostRecord.order(created_at: :desc)
+    @post_records = PostRecord.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def show

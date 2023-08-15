@@ -6,7 +6,7 @@ class Public::PostRecordsController < ApplicationController
   end
 
   def index
-    @post_records = PostRecord.order(created_at: :desc)
+    @post_records = PostRecord.order(created_at: :desc).page(params[:page]).per(10)
     @categories = Category.all
   end
 

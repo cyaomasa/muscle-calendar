@@ -4,12 +4,12 @@ class Public::UsersController < ApplicationController
   before_action :set_user, only: [:favorites]
   
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(8)
   end
   
   def show
     @user = User.find(params[:id])
-    @post_records = @user.post_records.all.order(created_at: :desc)
+    @post_records = @user.post_records.all.order(created_at: :desc).page(params[:page]).per(10)
     favorites = Favorite.where(user_id: @user.id).pluck(:post_record_id)
     @favorite_post_records = PostRecord.find(favorites)
   end

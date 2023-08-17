@@ -24,3 +24,29 @@
   text-align: center;
   margin-left: 50px;
 }
+
+.fa-arrow-alt-circle-left {
+  font-size: 50px;
+  position: absolute;
+  z-index: 100;
+  left: -100px;
+  top: 200px;
+}
+
+.fa-arrow-alt-circle-right {
+  font-size: 50px;
+  position: absolute;
+  z-index: 100;
+  right: -100px;
+  top: 200px
+}
+
+.slider {
+  width: 60%;
+  height: 60%;
+  margin: 0 auto;
+}
+
+.previews {
+  margin: auto;
+}

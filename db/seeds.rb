@@ -11,30 +11,39 @@ Admin.create!(
     password: "111111"
   )
   
-Category.create!(
-    name: "胸"
+  Category.create!(
+    name: "胸",
+    id: 1
   )
   Category.create!(
-    name: "肩"
+    name: "肩",
+    id: 2
   )
   Category.create!(
-    name: "背中"
+    name: "背中",
+    id: 3
   )
   Category.create!(
-    name: "腕"
+    name: "腕",
+    id: 4
   )
   Category.create!(
-    name: "腹"
+    name: "腹",
+    id: 5
   )
   Category.create!(
-    name: "脚"
+    name: "脚",
+    id: 6
   )
   Category.create!(
-    name: "上半身"
+    name: "上半身",
+    id: 7
   )
   Category.create!(
-    name: "下半身"
+    name: "下半身",
+    id: 8
   )
   Category.create!(
-    name: "その他"
+    name: "その他",
+    id: 9
   )

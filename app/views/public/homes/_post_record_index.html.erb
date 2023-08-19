@@ -1,18 +1,18 @@
-<h4>トレーニング数の比較</h4>
+<h4 class="pb-4"><b>トレーニング数の比較</b></h4>
 <table class="table table-bordered">
   <thead>
-    <tr>
-      <th>今週のトレーニング数</th>
-      <th>前週のトレーニング数</th>
+    <tr class="table-warning">
+      <th>今週</th>
+      <th>前週</th>
       <th>前週比</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><%= @this_week_post_record.count %></td>
-      <td><%= @last_week_post_record.count %></td>
+    <tr class="text-right">
+      <td><%= @this_week_post_record.count %>種目 </td>
+      <td><%= @last_week_post_record.count %>種目</td>
     <% if @last_week_post_record.count == 0 %>
-      <td>前週のトレーニング数が0のため計算できません</td>
+      <td>0%</td>
     <% else %>
       <td>
         <% @the_week_before = @this_week_post_record.count / @last_week_post_record.count.to_f %>
@@ -22,20 +22,20 @@
     </tr>
   </tbody>
 </table>
-<table class="table table-bordered">
+<table class="table table-bordered mt-5">
   <thead>
-    <tr>
-      <th>今月のトレーニング数</th>
-      <th>前月のトレーニング数</th>
+    <tr class="table-warning">
+      <th>今月</th>
+      <th>前月</th>
       <th>前月比</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><%= @this_month_post_record.count %></td>
-      <td><%= @last_month_post_record.count %></td>
+    <tr class="text-right">
+      <td><%= @this_month_post_record.count %>種目</td>
+      <td><%= @last_month_post_record.count %>種目</td>
     <% if @last_month_post_record.count == 0 %>
-      <td>前月のトレーニング数が0のため計算できません</td>
+      <td>0%</td>
     <% else %>
       <td>
         <% @the_month_before = @this_month_post_record.count / @last_month_post_record.count.to_f %>

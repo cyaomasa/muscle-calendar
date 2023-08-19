@@ -1,7 +1,7 @@
 <% categories.each do |category| %>
   <%= link_to(category_path(category.id), class:"text-dark") do %>
   <span class="mr-2">
-    <i class="fa-solid fa-tags"></i><%= category.name %>
+    <i class="fa-solid fa-tags fa-lg" style="color: #fbc200;"></i><%= category.name %>
     <%="(#{category.post_records.count})" %>
   </span>
   <% end %>

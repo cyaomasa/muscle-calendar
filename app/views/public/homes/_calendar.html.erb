@@ -2,7 +2,7 @@
   <%= date.day %>
   <% post_records.each do |post_record| %>
   <div class="calendar-text">
-    <%= link_to post_record.training_name, post_record_path(post_record) %>
+    ・<%= link_to post_record.training_name, post_record_path(post_record) %>
   </div>
   <% end %>
 <% end %>

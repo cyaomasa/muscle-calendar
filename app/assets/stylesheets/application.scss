@@ -14,5 +14,31 @@
  *= require_tree .
  *= require_self
  */
-@import "slick-theme";
-@import "slick"; 
+ 
+ main {
+  margin-top: 50px;
+}
+
+ .flash-message {
+  border-radius: 5px;
+  padding: 16px 24px;
+  margin: 16px 0px;
+}
+ 
+.flash-message.notice {
+  background-color: #bcdfff;
+  color: #0067C0;
+  border: solid 1px #0067C0;
+  width: 300px;
+  text-align: center;
+  margin-left: 50px;
+}
+ 
+.flash-message.alert {
+  background-color: #ffd4d1;
+  color: #930403;
+  border: solid 1px #930403;
+  width: 300px;
+  text-align: center;
+  margin-left: 50px;
+}

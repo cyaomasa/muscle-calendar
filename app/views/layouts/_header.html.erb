@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #8BCFF1;">
+<nav class="navbar navbar-expand-md navbar-light fixed-top">
   <div class="ml-2">
     <%= link_to root_path do %>
    　<%= image_tag 'logo.jpg', :size => '80x80' %>
@@ -7,7 +7,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse show" id="navbarNavDropdown">
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav mr-auto ml-3">
     <% if request.fullpath.include? "/admin" %>
       <% if admin_signed_in? %>

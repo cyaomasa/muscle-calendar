@@ -1,6 +1,5 @@
-<h5 class="mb-4 mt-5">コメント一覧</h5>
+<h5 class="mb-4 mt-5">＜コメント＞</h5>
 <div id="commentWrapper">
-  <% if post_record.comments.present? %>
   <% post_record.comments.each do |post_comment| %>
     <div id="comment_<%= post_comment.id %>">
       <table class="mb-3 border-bottom">
@@ -25,8 +24,5 @@
         <% end %>
       </table>
     </div>
-  <% end %>
-  <% else %>
-    <p id="commentNothig">コメントはまだありません</p>
   <% end %>
 </div>

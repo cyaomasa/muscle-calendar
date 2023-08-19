@@ -29,6 +29,7 @@ class Public::UsersController < ApplicationController
   end
   
   private
+  
     def ensure_guest_user
       @user = User.find(params[:id])
       if @user.guest_user?

@@ -1,25 +1,25 @@
 <div class="container">
   <div>
-    <h4 class="my-5">トレーニング編集</h4>
+    <h4 class="my-5">＜トレーニング編集＞</h4>
     <%= form_with model: @post_record, url: post_record_path(@post_record), method: :patch do |f| %>
     <div class="row">
-      <p class="col-4 col-lg-3 border-bottom"><b>トレーニング名：</b></p>
-      <p class="col-6 col-lg-4 border-bottom"><%= f.text_field :training_name, size: 20 %></p>
+      <p class="col-5 col-md-3 border-bottom"><b>トレーニング名：</b></p>
+      <p class="col-5 col-md-3 border-bottom"><%= f.text_field :training_name, size: 24 %></p>
     </div>
     <div class="row">
-      <p class="col-4 col-lg-3 border-bottom"><b>部位：</b></p>
-      <p class="col-4 col-lg-3 border-bottom"><%= f.collection_select(:category_id, Category.all, :id, :name) %></p>
+      <p class="col-5 col-md-3 border-bottom"><b>部位：</b></p>
+      <p class="col-5 col-md-3 border-bottom"><%= f.collection_select(:category_id, Category.all, :id, :name) %></p>
     </div>
     <div class="row">
-      <p class="col-4 col-lg-3 border-bottom"><b>セット数：</b></p>
-      <p class="col-6 col-lg-4 border-bottom"><%= f.text_field :set_count, size: 1 %>セット</p>
+      <p class="col-5 col-md-3 border-bottom"><b>セット数：</b></p>
+      <p class="col-5 col-md-3 border-bottom"><%= f.text_field :set_count, size: 1 %>セット</p>
     </div>
     <div class="row">
-      <p class="col-4 col-lg-3 border-bottom"><b>1セット：</b></p>
-      <p class="col-7 col-lg-4 border-bottom"><%= f.text_field :rep_count, size: 1 %>回 / <%= f.text_field :weight, size: 1 %>kg</p>
+      <p class="col-5 col-md-3 border-bottom"><b>1セット：</b></p>
+      <p class="col-5 col-md-3 border-bottom"><%= f.text_field :rep_count, size: 1 %>回 / <%= f.text_field :weight, size: 1 %>kg</p>
     </div>
-    <div class="ml-5 mt-2 pl-5">
-      <%= f.submit "編集する", class: 'btn btn-success' %>
+    <div class="offset-4 offset-md-2 mt-3">
+      <%= f.submit "変更する", class: 'btn btn-success' %>
     </div>
     <% end %>
   </div>

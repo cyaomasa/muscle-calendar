@@ -1,12 +1,12 @@
 <div class="container">
+  <div>
+    <h4 class="mt-5 mb-3">＜<%= @category.name %>のトレーニング一覧＞</h4>
     <div>
-      <h4 class="mt-5 mb-3"><%= @category.name %>のトレーニング一覧</h4>
-      <div>
-        <span>（全<%= @post_records.count %>件）</span>
-        <%= render 'public/post_records/index', post_records: @post_records %>
-        <div class="offset-5">
-          <p><%= paginate @post_records, theme: 'twitter-bootstrap-4' %></p>
-        </div>
+      <span>（全<%= @post_records.count %>件）</span>
+      <%= render 'public/post_records/index', post_records: @post_records %>
+      <div class="offset-4 offset-md-5">
+        <p><%= paginate @post_records, theme: 'twitter-bootstrap-4' %></p>
       </div>
     </div>
+  </div>
 </div>

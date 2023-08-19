@@ -1,34 +1,34 @@
 <table class="table mt-4 text-center">
   <% if favorite_post_records.present? %>
   <thead>
-    <tr class="row">
-      <th class="col-4 col-lg-3">トレーニング日</th>
-      <th class="col-2 col-lg-2">投稿者名</th>
-      <th class="col-2 col-lg-2">部位</th>
-      <th class="col-3 col-lg-3">トレーニング名</th>
-      <th class="col-1 col-lg-1"></th>
+    <tr>
+      <th>トレーニング日</th>
+      <th>投稿者名</th>
+      <th>部位</th>
+      <th>トレーニング名</th>
+      <th>いいね数</th>
     </tr>
   </thead>
-  
-  <tbody class="bulk-registration-form">
+  <tbody>
   <% favorite_post_records.each do |post_record| %>
-    <tr class="row">
-      <td class="col-4 col-lg-3">
+    <tr>
+      <td>
         <%= post_record.start_time.strftime('%Y/%m/%d') %>
       </td>
-      <td class="col-2 col-lg-2">
+      <td>
         <%= post_record.user.name %>
       </td>
-      <td class="col-2 col-lg-2">
+      <td>
         <%= post_record.category.name %>
       </td>
-      <td class="col-3 col-lg-3">
+      <td>
       <%= link_to post_record_path(post_record.id) do %>
         <%= post_record.training_name %>
       <% end %>
       </td>
-      <td class="col-1 col-lg-1">
-        <%= post_record.favorites.count %>件のいいね
+      <td>
+        <i class="fas fa-heart fa-lg" aria-hidden="true" style="color: red;"></i>
+        <%= post_record.favorites.count %>
       </td>
     </tr>
   <% end %>

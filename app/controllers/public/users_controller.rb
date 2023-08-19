@@ -9,7 +9,7 @@ class Public::UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @post_records = @user.post_records.all.order(created_at: :desc).page(params[:page]).per(10)
+    @post_records = @user.post_records.all.order(created_at: :desc).page(params[:page]).per(8)
     favorites = Favorite.where(user_id: @user.id).pluck(:post_record_id)
     @favorite_post_records = PostRecord.find(favorites)
   end

@@ -1,13 +1,13 @@
 <% if admin_signed_in? %>
-  <%= form_with url: admin_search_path,method: :get, local: true do |f| %>
+  <%= form_with url: admin_search_path, method: :get, local: true, class:"search_form" do |f| %>
     <%= f.text_field :word, placeholder:"キーワード検索" %>
     <%= f.select :range, options_for_select([["ユーザー"], ["投稿"]]) %>
-    <%= f.submit'検索'%>
+    <%= f.submit'検索' %>
   <% end %>
 <% elsif user_signed_in? %> 
   <%= form_with url: search_path,method: :get, local: true do |f| %>
-    <%= f.text_field :word, placeholder:"キーワード検索" %>
-    <%= f.select :range, options_for_select([['ユーザー'], ['投稿']]) %>
-    <%= f.submit'検索'%>
+    <%= f.text_field :word, placeholder:"キーワード検索", class: "search_form" %>
+    <%= f.select :range, options_for_select([['ユーザー'], ['投稿']]), {}, {class: 'select_box'} %>
+    <%= f.submit'検索', class: "search_btn" %>
   <% end %>
 <% end %> 

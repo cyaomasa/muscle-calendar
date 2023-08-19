@@ -24,6 +24,21 @@
  background-color: #8BCFF1;
 }
 
+//検索バー
+.search_form {
+    border-radius: 5px;/*検索ボックスの角を丸める*/
+}
+
+.select_box {
+    border-radius: 5px;
+}
+
+.search_btn {
+    border-radius: 5px;
+    background-color: #F985B1;
+}
+
+//フラッシュメッセージ
  .flash-message {
   border-radius: 5px;
   padding: 16px 24px;
@@ -46,4 +61,15 @@
   width: 300px;
   text-align: center;
   margin-left: 50px;
+}
+
+//topページ背景画像
+.background {
+ background-image: image-url('gym.jpg');
+ background-size: 100%;
+}
+
+.introduction {
+ font-size: 40px;
+ color: white;
 }

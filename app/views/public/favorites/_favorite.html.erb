@@ -2,10 +2,10 @@
   <%= link_to post_record_favorites_path(post_record), class: "like-link", method: :delete, remote: true do %>
     <i class="fas fa-heart fa-lg" aria-hidden="true" style="color: red;"></i>
   <% end %>
-  <%= post_record.favorites.count %>件のいいね
+  <%= post_record.favorites.count %>
 <% else %>
   <%= link_to post_record_favorites_path(post_record), class: "like-link", method: :post, remote: true do %>
     <i class="fa-regular fa-heart fa-lg" aria-hidden="true"></i>
   <% end %>
-  <%= post_record.favorites.count %>件のいいね
+  <%= post_record.favorites.count %>
 <% end %>

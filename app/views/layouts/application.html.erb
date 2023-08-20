@@ -23,6 +23,10 @@
         <div class="flash-message <%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
+      <a href="#page_top" class="page_top_btn">トップへ戻る</a>
     </main>
+    <footer class="border-top border-dark mt-5">
+      <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>

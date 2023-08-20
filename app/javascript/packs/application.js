@@ -18,6 +18,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+//スライド表示
 /*global $*/
 $(document).on('turbolinks:load', function() {
 $(function() {
@@ -27,4 +28,14 @@ $(function() {
     dots:true
   })
 });
+});
+
+//topに戻るボタン
+$(function() {
+  $('#back a').on('click',function(event){
+    $('body, html').animate({
+      scrollTop:0
+    }, 800);
+    event.preventDefault();
+  });
 });

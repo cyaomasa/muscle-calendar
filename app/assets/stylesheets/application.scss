@@ -16,7 +16,7 @@
  */
  
  main {
-  margin-top: 50px;
+  margin-top: 47px;
 }
 
 //ヘッダー
@@ -66,10 +66,12 @@
 //topページ背景画像
 .background {
  background-image: image-url('gym.jpg');
- background-size: 100%;
+ background-size: cover;
+ background-position: 50% 0;
 }
 
 .introduction {
- font-size: 40px;
+ font-size: 180%;
+ font-weight: bold;
  color: white;
 }

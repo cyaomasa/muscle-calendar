@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <h4 class="my-5">投稿一覧</h4>
+    <h4 class="my-5">＜投稿一覧＞</h4>
     <%= render 'index', post_records: @post_records %>
-    <div class="offset-5">
+    <div class="offset-4 offset-md-5">
       <p><%= paginate @post_records, theme: 'twitter-bootstrap-4' %></p>
     </div>
   </div>

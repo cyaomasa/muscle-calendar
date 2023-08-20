@@ -1,5 +1,5 @@
 class Form::PostRecordCollection < Form::Base
-  FORM_COUNT = 5
+  FORM_COUNT = 6
   attr_accessor :post_records
 
   def initialize(attributes = {})

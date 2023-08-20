@@ -1,5 +1,5 @@
 <div class="container">
-    <h4 class="my-5">投稿詳細</h4>
+    <h4 class="my-5">＜投稿詳細＞</h4>
     <%= render 'public/post_records/show', post_record: @post_record %>
     <div class="ml-5 mt-2 pl-5">
       <span class="ml-5"><%= link_to "投稿削除", admin_post_record_path(params[:id]), method: :delete, class: 'btn btn-danger', "data-confirm" => "本当に削除しますか？" %></span>

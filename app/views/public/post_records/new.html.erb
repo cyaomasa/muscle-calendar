@@ -1,48 +1,43 @@
 <div class="container">
-  <h4 class="my-5">トレーニング記録/投稿</h4>
+  
+  <h4 class="my-5">＜トレーニング記録/投稿＞</h4>
   <%= form_with model: @form, url: post_records_path, method: :post, local: true do |form| %>
-  <table class="table mt-4 text-center">
-    <thead>
-      <tr>
-        <th class="col-1 col-md-1">登録</th>
-        <th class="col-1 col-md-1">トレーニング日</th>
-        <th class="col-1 col-md-1">部位</th>
-        <th class="col-4 col-md-3">トレーニング名</th>
-        <th class="col-2 col-md-1">セット数</th>
-        <th class="col-2 col-md-1">重量(kg)</th>
-        <th class="col-2 col-md-1">レップ数(回)</th>
-      </tr>
-    </thead>
-    <tbody class="bulk-registration-form">
-    <%= form.fields_for :post_records do |f| %>
-      <tr class="item">
-        <td class="col-2 col-md-1">
-          <%= f.check_box :availability, class: 'top10 registration-checkbox' %>
-        </td>
-        <td class="form-group col-1 col-md-1">
-          <%= f.date_field :start_time, value:Time.now.strftime("%Y-%m-%d"), class: 'form-control' %>
-        </td>
-        <td class="form-group col-1 col-md-1">
-          <%= f.collection_select(:category_id, Category.all, :id, :name) %>
-        </td>
-        <td class="col-4 col-md-3">
-          <%= f.text_field :training_name, class: 'form-control' %>
-        </td>
-        <td class="col-2 col-md-1">
-          <%= f.text_field :set_count, class: 'form-control' %>
-        </td>
-        <td class="col-2 col-md-1">
-          <%= f.text_field :weight, class: 'form-control' %>
-        </td>
-        <td class="col-2 col-md-1">
-          <%= f.text_field :rep_count, class: 'form-control' %>
-        </td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-  <div class="text-center">
-    <%= form.submit '新規登録', class: 'btn btn-success' %>
+  <%= form.fields_for :post_records do |f| %>
+
+  <div class="card d-flex flex-row">
+  <div class="card-body">
+    <div>
+      <%= f.check_box :availability, class: 'top10 registration-checkbox' %>
+    </div>
+    <div class="row my-1">
+      <p>トレーニング日：</p>
+      <p><%= f.date_field :start_time, value:Time.now.strftime("%Y-%m-%d"), class: 'form-control' %></p>
+    </div>
+    <div class="row my-1">
+      <p>部位：</p>
+      <p><%= f.collection_select(:category_id, Category.all, :id, :name) %></p>
+    </div>
+    <div class="row my-1">
+      <p>トレーニング名：</p>
+      <p><%= f.text_field :training_name, class: 'form-control' %></p>
+    </div>
+    <div class="row my-1">
+      <p>セット数：</p>
+      <p><%= f.text_field :set_count, class: 'form-control' %></p>
+    </div>
+    <div class="row my-1">
+      <p>重量(kg)：</p>
+      <p><%= f.text_field :weight, class: 'form-control' %></p>
+    </div>
+    <div class="row mt-1">
+      <p>レップ数(回)：</p>
+      <p><%= f.text_field :rep_count, class: 'form-control' %></p>
+    </div>
   </div>
+  </div>
+
+
+    <% end %>
+ 
   <% end %>
 </div>

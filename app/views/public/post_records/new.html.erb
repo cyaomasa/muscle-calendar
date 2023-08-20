@@ -1,43 +1,41 @@
 <div class="container">
-  
   <h4 class="my-5">＜トレーニング記録/投稿＞</h4>
   <%= form_with model: @form, url: post_records_path, method: :post, local: true do |form| %>
+  <div class="text-center my-4">
+    <%= form.submit '選択した項目を登録', class: 'btn btn-success' %>
+  </div>
   <%= form.fields_for :post_records do |f| %>
-
-  <div class="card d-flex flex-row">
-  <div class="card-body">
-    <div>
+  <div class="card d-inline-flex ml-5 ml-md-3">
+    <div class="card-header">
       <%= f.check_box :availability, class: 'top10 registration-checkbox' %>
     </div>
-    <div class="row my-1">
-      <p>トレーニング日：</p>
-      <p><%= f.date_field :start_time, value:Time.now.strftime("%Y-%m-%d"), class: 'form-control' %></p>
-    </div>
-    <div class="row my-1">
-      <p>部位：</p>
-      <p><%= f.collection_select(:category_id, Category.all, :id, :name) %></p>
-    </div>
-    <div class="row my-1">
-      <p>トレーニング名：</p>
-      <p><%= f.text_field :training_name, class: 'form-control' %></p>
-    </div>
-    <div class="row my-1">
-      <p>セット数：</p>
-      <p><%= f.text_field :set_count, class: 'form-control' %></p>
-    </div>
-    <div class="row my-1">
-      <p>重量(kg)：</p>
-      <p><%= f.text_field :weight, class: 'form-control' %></p>
-    </div>
-    <div class="row mt-1">
-      <p>レップ数(回)：</p>
-      <p><%= f.text_field :rep_count, class: 'form-control' %></p>
-    </div>
+    <table class="card-body">
+      <tr>
+        <td class="col-5 py-3">トレーニング日：</td>
+        <td class="col-2"><%= f.date_field :start_time, value:Time.now.strftime("%Y-%m-%d"), class: 'form-control form-control-sm' %></td>
+      </tr>
+      <tr>
+        <td class="col-2 pb-3">部位：</td>
+        <td class="col-2 pb-3"><%= f.collection_select(:category_id, Category.all, :id, :name) %></td>
+      </tr>
+      <tr>
+        <td class="col-2 pb-3">トレーニング名：</td>
+        <td class="col-4 pb-3"><%= f.text_field :training_name, class: 'form-control form-control-sm' %></td>
+      </tr>
+      <tr>
+        <td class="col-2 pb-3">セット数：</td>
+        <td class="col-2 pb-3"><%= f.text_field :set_count, class: 'form-control form-control-sm' %></td>
+      </tr>
+      <tr>
+        <td class="col-2 pb-3">重量(kg)：</td>
+        <td class="col-2 pb-3"><%= f.text_field :weight, class: 'form-control form-control-sm' %></td>
+      </tr>
+      <tr>
+        <td class="col-2 pb-4">レップ数(回)：</td>
+        <td class="col-2 pb-4"><%= f.text_field :rep_count, class: 'form-control form-control-sm' %></td>
+      </tr>
+    </table>
   </div>
-  </div>
-
-
-    <% end %>
- 
+  <% end %>
   <% end %>
 </div>

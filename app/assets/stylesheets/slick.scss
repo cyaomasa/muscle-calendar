@@ -99,26 +99,27 @@
     display: none;
 }
 
-
+/*スライドpreviewボタン*/
 .fa-arrow-alt-circle-left {
   font-size: 250%;
   position: absolute;
   z-index: 100;
-  left: -100px;
-  top: 38%;
+  left: -50px;
+  top: 45%;
 }
 
+/*スライドnextボタン*/
 .fa-arrow-alt-circle-right {
   font-size: 250%;
   position: absolute;
   z-index: 100;
-  right: -100px;
-  top: 38%;
+  right: -50px;
+  top: 45%;
 }
 
 .slider {
-  width: 60%;
-  height: 60%;
+  width: 90%;
+  height: 90%;
   margin: 0 auto;
 }
 

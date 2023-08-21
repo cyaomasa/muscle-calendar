@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
       <p class="my-4">
         <span class="mr-2"><b>新規記録/投稿</b></span>
         <%= link_to new_post_record_path do %>
@@ -11,7 +11,7 @@
         <%= render 'calendar', post_records: @post_records %>
       </div>
     </div>
-    <div class="col-md-4 pt-md-5 mt-5 ">
+    <div class="col-md-3 pt-md-5 mt-4 ">
       <%= render 'post_record_index', post_records: @post_records %>
     </div>
   </div>

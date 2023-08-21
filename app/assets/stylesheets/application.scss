@@ -15,26 +15,36 @@
  *= require_self
  */
  
- 
  html {
   scroll-behavior: smooth;
 }
+
  main {
   margin-top: 47px;
 }
 
-//ヘッダー
+.content {
+  position: relative;
+  padding-bottom: 200px;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+/*ヘッダー装飾*/
 .navbar {
  background-color: #8BCFF1;
 }
 
-/*フッター*/
+/*フッターの装飾*/
 footer {
+ width: 100%;
  background-color: #8BCFF1;
+ position: absolute;
+ bottom: 0;
 }
 
 /* ボタン全体 */
-#page_top{
+#page_top {
   width: 60px;
   height: 60px;
   position: fixed;
@@ -44,38 +54,38 @@ footer {
   opacity: 0.6;
   }
 
-  /* Font Awesome */
-  #page_top::before {
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 800;
-    content: '\f0d8';
-    font-size: 40px;
-    color: #ffffff;
-    position: absolute;
-    width: 22px;
-    height: 18px;
-    top: 0;
-    bottom: 10px;
-    right: 0;
-    left: 0;
-    margin: auto;
-    text-align: center;
-  }
+/* Font Awesome */
+#page_top::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 800;
+  content: '\f0d8';
+  font-size: 40px;
+  color: #ffffff;
+  position: absolute;
+  width: 22px;
+  height: 18px;
+  top: 0;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
 
-  #page_top::after{
-    content: 'PAGE TOP';
-    font-size: 10px;
-    color: #fff;
-    position: absolute;
-    top: 15px;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-    text-align: center;
-  }
+#page_top::after {
+  content: 'PAGE TOP';
+  font-size: 10px;
+  color: #fff;
+  position: absolute;
+  top: 15px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
 
-//検索バー
+/*検索バー*/
 .search_form {
     border-radius: 5px;/*検索ボックスの角を丸める*/
 }
@@ -89,7 +99,7 @@ footer {
     background-color: #F985B1;
 }
 
-//フラッシュメッセージ
+/*フラッシュメッセージ*/
  .flash-message {
   border-radius: 5px;
   padding: 16px 24px;
@@ -114,7 +124,7 @@ footer {
   margin-left: 50px;
 }
 
-//topページ背景画像
+/*topページ背景画像*/
 .background {
  background-image: image-url('gym.jpg');
  background-size: cover;

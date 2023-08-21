@@ -50,21 +50,20 @@ class Public::PostRecordsController < ApplicationController
   
   private
   
-    def is_matching_login_user
-      post_record = PostRecord.find(params[:id])
-      user = post_record.user
-      unless user.id == current_user.id
-        redirect_to post_records_path
-      end
+  def is_matching_login_user
+    post_record = PostRecord.find(params[:id])
+    user = post_record.user
+    unless user.id == current_user.id
+      redirect_to post_records_path
     end
-      
-    def post_record_params
-      params.require(:post_record).permit(:training_name, :set_count, :weight, :rep_count, :start_time, :category_id)
-    end
-  
-    def post_record_collection_params
-      params.require(:form_post_record_collection)
-        .permit(post_records_attributes: [:training_name, :set_count, :weight, :rep_count, :availability, :start_time, :category_id])
-    end
-  
+  end
+    
+  def post_record_params
+    params.require(:post_record).permit(:training_name, :set_count, :weight, :rep_count, :start_time, :category_id)
+  end
+
+  def post_record_collection_params
+    params.require(:form_post_record_collection)
+      .permit(post_records_attributes: [:training_name, :set_count, :weight, :rep_count, :availability, :start_time, :category_id])
+  end
 end

@@ -12,7 +12,7 @@ class PostRecord < ApplicationRecord
   validates :start_time, presence: true
   validates :availability, inclusion: { in: [true, false] }
   
-  #投稿数記録用
+  #投稿数記録の分岐
   scope :created_this_week, -> { where(start_time: Time.current.all_week) }
   scope :created_last_week, -> { where(start_time: Time.current.last_week.all_week) }
   scope :created_this_month, -> { where(start_time: Time.current.all_month) }
@@ -25,7 +25,4 @@ class PostRecord < ApplicationRecord
   def self.looks(word)
     @post_records = PostRecord.where('training_name LIKE ?', '%' + word + '%')
   end
-  
-  
-    
 end

@@ -1,30 +1,30 @@
 <h5 class="mb-4 mt-5">＜コメント＞</h5>
 <div class="comments-index">
   <div id="commentWrapper">
-    <% post_record.comments.each do |post_comment| %>
-      <div id="comment_<%= post_comment.id %>">
-        <table class="mb-3 border-bottom">
-          <tr>
-            <td>
-            <%= link_to user_path(post_comment.user_id) do %>  
-              <%= post_comment.user.name %>：
-            <% end %>
-            </td>
-            <td><%= post_comment.comment %></td>
-          </tr>
-          <tr>
-            <td>投稿日：</td>
-            <td>
-              <%= post_comment.created_at.strftime('%Y/%m/%d') %>
-              <% if post_comment.user == current_user %>
+  <% post_record.comments.each do |post_comment| %>
+    <div id="comment_<%= post_comment.id %>">
+      <table class="mb-3 border-bottom">
+        <tr>
+          <td>
+          <%= link_to user_path(post_comment.user_id) do %>  
+            <%= post_comment.user.name %>：
+          <% end %>
+          </td>
+          <td><%= post_comment.comment %></td>
+        </tr>
+        <tr>
+          <td>投稿日：</td>
+          <td>
+            <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+            <% if post_comment.user == current_user %>
               <%= link_to post_record_comment_path(post_comment.post_record, post_comment), method: :delete, remote: true, data: {"turbolinks" => false} do %>
                 <i class="fa-regular fa-trash-can"></i>
               <% end %>
-            </td>
-          </tr>
-          <% end %>
-        </table>
-      </div>
-    <% end %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  <% end %>
   </div>
 </div>

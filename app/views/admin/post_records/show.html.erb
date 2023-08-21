@@ -1,41 +1,41 @@
 <div class="container">
-    <h4 class="my-5">＜投稿詳細＞</h4>
-    <%= render 'public/post_records/show', post_record: @post_record %>
-    <div class="offset-2">
-      <span class="ml-5"><%= link_to "投稿削除", admin_post_record_path(params[:id]), method: :delete, class: 'btn btn-danger', "data-confirm" => "本当に削除しますか？" %></span>
-    </div>
-    <div class="my-4">
-      <h5 class="mb-4 mt-5">＜コメント一覧＞</h5>
-      <div class="comment-index">
-        <div id="commentWrapper">
-          <% if @post_record.comments.present? %>
-          <% @post_record.comments.each do |post_comment| %>
-            <div id="comment_<%= post_comment.id %>">
-              <table class="mb-3 border-bottom">
-                <tr>
-                  <td>
-                  <%= link_to user_path(post_comment.user_id) do %>  
-                    <%= post_comment.user.name %>：
-                  <% end %>
-                  </td>
-                  <td><%= post_comment.comment %></td>
-                </tr>
-                <tr>
-                  <td>投稿日：</td>
-                  <td>
-                    <%= post_comment.created_at.strftime('%Y/%m/%d') %>
-                    <span class="ml-3">
-                      <%= link_to "コメント削除", post_record_comment_path(post_comment.post_record, post_comment), method: :delete, remote: true, data: {"turbolinks" => false}, class: 'btn btn-danger', "data-confirm" => "本当に削除しますか？" %>
-                    </span>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          <% end %>
-          <% else %>
-            <p id="commentNothig">コメントはまだありません</p>
-          <% end %>
-        </div>
+  <h4 class="my-5">＜投稿詳細＞</h4>
+  <%= render 'public/post_records/show', post_record: @post_record %>
+  <div class="offset-2">
+    <span class="ml-5"><%= link_to "投稿削除", admin_post_record_path(params[:id]), method: :delete, class: 'btn btn-danger', "data-confirm" => "本当に削除しますか？" %></span>
+  </div>
+  <div class="my-4">
+    <h5 class="mb-4 mt-5">＜コメント一覧＞</h5>
+    <div class="comment-index">
+      <div id="commentWrapper">
+        <% if @post_record.comments.present? %>
+        <% @post_record.comments.each do |post_comment| %>
+          <div id="comment_<%= post_comment.id %>">
+            <table class="mb-3 border-bottom">
+              <tr>
+                <td>
+                <%= link_to user_path(post_comment.user_id) do %>  
+                  <%= post_comment.user.name %>：
+                <% end %>
+                </td>
+                <td><%= post_comment.comment %></td>
+              </tr>
+              <tr>
+                <td>投稿日：</td>
+                <td>
+                  <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+                  <span class="ml-3">
+                    <%= link_to "コメント削除", post_record_comment_path(post_comment.post_record, post_comment), method: :delete, remote: true, data: {"turbolinks" => false}, class: 'btn btn-danger', "data-confirm" => "本当に削除しますか？" %>
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        <% end %>
+        <% else %>
+          <p id="commentNothig">コメントはまだありません</p>
+        <% end %>
       </div>
     </div>
+  </div>
 </div>

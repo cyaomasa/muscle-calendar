@@ -4,5 +4,4 @@ class Admin::CommentsController < ApplicationController
     @comment = Comment.find_by(id: params[:id])
     @comment.destroy if @comment
   end
-  
 end

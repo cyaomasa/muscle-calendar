@@ -1,10 +1,10 @@
 <div class="container">
-    <h4 class="my-5">＜投稿一覧＞</h4>
-    <div>
-      <%= render 'search_category', categories: @categories %>
-    </div>
-    <%= render 'index', post_records: @post_records %>
-    <div class="offset-4 offset-md-5">
-      <p><%= paginate @post_records, theme: 'twitter-bootstrap-4' %></p>
-    </div>
+  <h4 class="my-5">＜投稿一覧＞</h4>
+  <div>
+    <%= render 'search_category', categories: @categories %>
+  </div>
+  <%= render 'index', post_records: @post_records %>
+  <div class="offset-4 offset-md-5">
+    <p><%= paginate @post_records, theme: 'twitter-bootstrap-4' %></p>
+  </div>
 </div>

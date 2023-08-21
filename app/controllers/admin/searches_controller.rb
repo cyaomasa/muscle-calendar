@@ -12,5 +12,4 @@ class Admin::SearchesController < ApplicationController
       @categories = Category.all
     end
   end
-  
 end

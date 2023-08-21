@@ -1,17 +1,17 @@
 <div class="container">
   <% if @range == "ユーザー" %>
-  <h4 class="mt-5">"<%= @word %>" の検索結果</h4>
-  <h6 class="my-3">(全<%= @users.count %>件)</h6>
-    <%= render 'admin/users/index', users: @users_page %>
-  <div class="offset-4 offset-md-5">
-    <p><%= paginate @users_page, theme: 'twitter-bootstrap-4' %></p>
-  </div>
+    <h4 class="mt-5">"<%= @word %>" の検索結果</h4>
+    <h6 class="my-3">(全<%= @users.count %>件)</h6>
+      <%= render 'admin/users/index', users: @users_page %>
+    <div class="offset-4 offset-md-5">
+      <p><%= paginate @users_page, theme: 'twitter-bootstrap-4' %></p>
+    </div>
   <% else %>
-  <h4 class="mt-5">"<%= @word %>" の検索結果</h4>
-  <h6 class="my-3">(全<%= @post_records.count %>件)</h6>
-    <%= render 'admin/post_records/index', post_records: @post_records_page %>
-  <div class="offset-4 offset-md-5">
-    <p><%= paginate @post_records_page, theme: 'twitter-bootstrap-4' %></p>
-  </div>
+    <h4 class="mt-5">"<%= @word %>" の検索結果</h4>
+    <h6 class="my-3">(全<%= @post_records.count %>件)</h6>
+      <%= render 'admin/post_records/index', post_records: @post_records_page %>
+    <div class="offset-4 offset-md-5">
+      <p><%= paginate @post_records_page, theme: 'twitter-bootstrap-4' %></p>
+    </div>
   <% end %>
 </div>

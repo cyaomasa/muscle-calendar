@@ -9,5 +9,4 @@ class Public::FavoritesController < ApplicationController
     @post_record = PostRecord.find(params[:post_record_id])
     current_user.unfavorite(@post_record)
   end
-  
 end

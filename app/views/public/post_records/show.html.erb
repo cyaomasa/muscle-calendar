@@ -11,7 +11,6 @@
         <span class="ml-2"><%= link_to "削除", post_record_path(params[:id]), method: :delete, class: 'btn btn-danger', "data-confirm" => "本当に削除しますか？" %></span>
       <% end %>
     </div>
-
     <div class="my-4">
       <%= render 'public/comments/post_comments', post_record: @post_record %>
     </div>

@@ -30,27 +30,26 @@ class Public::UsersController < ApplicationController
   end
   
   private
-  
-  def ensure_guest_user
-    @user = User.find(params[:id])
-    if @user.guest_user?
-      flash[:notice] = "ゲストユーザーはプロフィール編集画面へ遷移できません。"
-      redirect_to users_path
+    def ensure_guest_user
+      @user = User.find(params[:id])
+      if @user.guest_user?
+        flash[:notice] = "ゲストユーザーはプロフィール編集画面へ遷移できません。"
+        redirect_to users_path
+      end
     end
-  end
   
-  def is_matching_login_user
-    user = User.find(params[:id])
-    unless user.id == current_user.id
-      redirect_to post_records_path
+    def is_matching_login_user
+      user = User.find(params[:id])
+      unless user.id == current_user.id
+        redirect_to post_records_path
+      end
     end
-  end
   
-  def user_params
-    params.require(:user).permit(:name, :favorite_event, :profile_image)
-  end
+    def user_params
+      params.require(:user).permit(:name, :favorite_event, :profile_image)
+    end
   
-  def set_user
-    @user = User.find(params[:id])
-  end
+    def set_user
+      @user = User.find(params[:id])
+    end
 end

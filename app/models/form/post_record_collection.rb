@@ -1,4 +1,6 @@
 class Form::PostRecordCollection < Form::Base
+  
+  #作成したい登録フォーム数
   FORM_COUNT = 6
   attr_accessor :post_records
 
@@ -14,7 +16,8 @@ class Form::PostRecordCollection < Form::Base
   def save(user)
     PostRecord.transaction do
       self.post_records.map do |post_record|
-        if post_record.availability # チェックボックスにチェックを入れている投稿のみが保存される
+        #チェックボックスにチェックを入れている投稿のみが保存される
+        if post_record.availability 
           post_record.user_id = user.id
           post_record.save
         end

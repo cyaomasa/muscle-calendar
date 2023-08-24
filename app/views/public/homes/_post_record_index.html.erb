@@ -15,6 +15,7 @@
       <td>0%</td>
     <% else %>
       <td>
+        <!--前週比-->
         <% @the_week_before = @this_week_post_record.count / @last_week_post_record.count.to_f %>
         <%= (@the_week_before * 100).round %>%
       </td>
@@ -38,6 +39,7 @@
       <td>0%</td>
     <% else %>
       <td>
+        <!--前月比-->
         <% @the_month_before = @this_month_post_record.count / @last_month_post_record.count.to_f %>
         <%= (@the_month_before * 100).round %>%
       </td>

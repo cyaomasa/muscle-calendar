@@ -15,6 +15,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav mr-auto ml-3">
+    <!--ヘッダーの表示内容切り替え-->
     <% if request.fullpath.include? "/admin" %>
       <% if admin_signed_in? %>
         <li class="nav-item mr-3 mb-2 mb-md-0">

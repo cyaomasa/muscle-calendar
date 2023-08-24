@@ -43,7 +43,7 @@ footer {
  bottom: 0;
 }
 
-/* ボタン全体 */
+/* topに戻るボタン全体 */
 #page_top {
   width: 60px;
   height: 60px;
@@ -90,12 +90,14 @@ footer {
     border-radius: 5px;/*検索ボックスの角を丸める*/
 }
 
+/*検索条件選択*/
 .select_box {
-    border-radius: 5px;
+    border-radius: 5px;/*検索ボックスの角を丸める*/
 }
 
+/*検索ボタン*/
 .search_btn {
-    border-radius: 5px;
+    border-radius: 5px;/*検索ボックスの角を丸める*/
     background-color: #F985B1;
 }
 
@@ -131,6 +133,7 @@ footer {
  background-position: 50% 0;
 }
 
+/*topページの紹介文装飾*/
 .introduction {
  font-size: 180%;
  font-weight: bold;

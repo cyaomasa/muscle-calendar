@@ -20,7 +20,12 @@
 - 他の人のトレーニングを参考にしたい時
 ​
 ## 設計書
-<!--テーマを設定・提出する時点では不要です-->
+- ER図: url:(https://drive.google.com/file/d/1osaIYtPNjaGPwYASw9gamQYeKcrEkGNm/view?usp=sharing)
+- UI Flows: url:(https://drive.google.com/file/d/1LYM3FCTC2F5uGME262qcGhUgF4R4ZM3A/view?usp=sharing)
+- ワイヤーフレーム: url:(https://drive.google.com/file/d/1RN-YMIGiZgBXngQh2QAZwR-WIKEkrOg9/view?usp=sharing)
+- テーブル定義書: url:(https://docs.google.com/spreadsheets/d/1wJHVABYJBe7wW9L8fpSX0kcTsWYtlYOKjZQIdT0kO-A/edit?usp=sharing)
+- アプリケーション詳細設計書: url:(https://docs.google.com/spreadsheets/d/1B7Lu1a_iLEMwOrxGoFTLB4Wo-Rk5AhGDyKHraYd56ig/edit?usp=sharing)
+- テスト仕様書: url:(https://docs.google.com/spreadsheets/d/1wIr8WwENadSA8VWSLRGRRyWzqzVoEnMr/edit?usp=sharing&ouid=111929996884706976773&rtpof=true&sd=true)
 ​
 ## 開発環境
 - OS：Linux(CentOS)
@@ -30,4 +35,5 @@
 - IDE：Cloud9
 ​
 ## 使用素材
-
+- フリーイラスト素材として以下を使用
+  - ジムの設備を紹介する(https://www.photo-ac.com/photo.ac)

@@ -1,9 +1,7 @@
-<% unless @post_record.user_id == current_user.id %>
 <div class="row">
   <p class="col-4 col-md-3 border-bottom"><b>投稿者名：</b></p>
   <p class="col-4 col-md-3 border-bottom"><%= @post_record.user.name %></p>
 </div>
-<% end %>
 <div class="row">
   <p class="col-4 col-md-3 border-bottom"><b>トレーニング名：</b></p>
   <p class="col-4 col-md-3 border-bottom"><%= @post_record.training_name %></p>

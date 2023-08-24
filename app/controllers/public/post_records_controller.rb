@@ -53,7 +53,7 @@ class Public::PostRecordsController < ApplicationController
       post_record = PostRecord.find(params[:id])
       user = post_record.user
       unless user.id == current_user.id
-        redirect_to post_records_path
+        redirect_to homes_calendar_path
       end
     end
     

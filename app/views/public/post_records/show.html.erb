@@ -1,7 +1,9 @@
 <div class="container">
   <div>
     <h4 class="my-5">＜トレーニング詳細＞</h4>
-    <%= render 'show', post_record: @post_record %>
+    <div>
+      <%= render 'show', post_record: @post_record %>
+    </div>
     <div id="favorite_<%= @post_record.id %>">
       <%= render "public/favorites/favorite", post_record: @post_record %>
     </div>

@@ -2,7 +2,6 @@
   <thead>
     <tr>
       <th>トレーニング日</th>
-      <th>投稿者名</th>
       <th>部位</th>
       <th>トレーニング名</th>
       <th>いいね数</th>
@@ -13,9 +12,6 @@
     <tr>
       <td>
         <%= post_record.start_time.strftime('%Y/%m/%d') %>
-      </td>
-      <td>
-        <%= post_record.user.name %>
       </td>
       <td>
         <%= post_record.category.name %>

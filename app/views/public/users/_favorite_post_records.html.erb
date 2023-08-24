@@ -17,7 +17,9 @@
           <%= post_record.start_time.strftime('%Y/%m/%d') %>
         </td>
         <td>
-          <%= post_record.user.name %>
+          <%= link_to user_path(post_record.user) do %>
+            <%= post_record.user.name %>
+          <% end %>
         </td>
         <td>
           <%= post_record.category.name %>

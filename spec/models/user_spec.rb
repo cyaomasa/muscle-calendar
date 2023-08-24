@@ -19,13 +19,13 @@ RSpec.describe User, type: :model do
         expect(user.errors.messages[:email]).to include "を入力してください"
       end
     end
-    #context "email が256文字以上のとき" do
-      #let(:user) { build(:user, email: "a" * 256) }
-      #it "保存できない" do
-        #expect(subject).to eq false
-        #expect(user.errors.messages[:email]).to include "は255文字以内で入力してください"
-      #end
-    #end
+    # context "email が256文字以上のとき" do
+    # let(:user) { build(:user, email: "a" * 256) }
+    # it "保存できない" do
+    # expect(subject).to eq false
+    # expect(user.errors.messages[:email]).to include "は255文字以内で入力してください"
+    # end
+    # end
     context "email がすでに存在するとき" do
       before { create(:user, email: "test@example.com") }
       let(:user) { build(:user, email: "test@example.com") }
@@ -34,29 +34,29 @@ RSpec.describe User, type: :model do
         expect(user.errors.messages[:email]).to include "はすでに存在します"
       end
     end
-    #context "email が アルファベット･英数字 のみのとき" do
-      #let(:user) { build(:user, email: Faker::Lorem.characters(number: 16)) }
-      #it "保存できない" do
-        #expect(subject).to eq false
-        #expect(user.errors.messages[:email]).to include "は不正な値です"
-      #end
-    #end
+    # context "email が アルファベット･英数字 のみのとき" do
+    # let(:user) { build(:user, email: Faker::Lorem.characters(number: 16)) }
+    # it "保存できない" do
+    # expect(subject).to eq false
+    # expect(user.errors.messages[:email]).to include "は不正な値です"
+    # end
+    # end
     describe 'アソシエーションのテスト' do
-    context 'PostRecordモデルとの関係' do
-      it '1:Nとなっている' do
-        expect(User.reflect_on_association(:post_records).macro).to eq :has_many
+      context 'PostRecordモデルとの関係' do
+          it '1:Nとなっている' do
+              expect(User.reflect_on_association(:post_records).macro).to eq :has_many
+            end
         end
+      context 'Commentモデルとの関係' do
+        it '1:Nとなっている' do
+            expect(User.reflect_on_association(:comments).macro).to eq :has_many
+          end
       end
-    context 'Commentモデルとの関係' do
-    it '1:Nとなっている' do
-      expect(User.reflect_on_association(:comments).macro).to eq :has_many
-      end
-    end
-    context 'Favoriteモデルとの関係' do
-      it '1:Nとなっている' do
-        expect(User.reflect_on_association(:favorites).macro).to eq :has_many
+      context 'Favoriteモデルとの関係' do
+          it '1:Nとなっている' do
+              expect(User.reflect_on_association(:favorites).macro).to eq :has_many
+            end
         end
-      end
     end
   end
 end

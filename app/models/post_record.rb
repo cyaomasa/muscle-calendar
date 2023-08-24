@@ -18,12 +18,12 @@ class PostRecord < ApplicationRecord
   scope :created_this_month, -> { where(start_time: Time.current.all_month) }
   scope :created_last_month, -> { where(start_time: Time.current.last_month.all_month) }
   
-  #いいね機能
+  # いいね機能
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
   
-  #投稿の検索条件
+  # 投稿の検索条件
   def self.looks(word)
     @post_records = PostRecord.where('training_name LIKE ?', '%' + word + '%')
   end

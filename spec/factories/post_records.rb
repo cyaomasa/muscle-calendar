@@ -6,7 +6,7 @@ FactoryBot.define do
     weight { Faker::Lorem.characters(number: 2) }
     rep_count { Faker::Lorem.characters(number: 2) }
     start_time { Date.today }
-    availability{ 0 }
+    availability { 0 }
     category_id { 1 }
     user_id { 1 }
     user

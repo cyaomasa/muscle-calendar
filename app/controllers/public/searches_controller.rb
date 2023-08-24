@@ -1,7 +1,7 @@
 class Public::SearchesController < ApplicationController
     
   def search
-    #ユーザーと投稿で条件分岐し検索
+    # ユーザーと投稿で条件分岐し検索
     @range = params[:range]
     @word = params[:word]
     if @range == "ユーザー"

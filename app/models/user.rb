@@ -29,12 +29,12 @@ class User < ApplicationRecord
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
   
-  #ユーザーの検索条件
+  # ユーザーの検索条件
   def self.looks(word)
     @users = User.where('name LIKE ?', '%' + word + '%')
   end
   
-  #いいね機能
+  # いいね機能
   def favorite(post_record)
     favorites.find_or_create_by(post_record_id: post_record.id)
   end

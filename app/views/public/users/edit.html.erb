@@ -3,7 +3,6 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
     <h4 class="my-5">＜ユーザー編集＞</h4>
     <%= form_with model:@user, local:true do |f| %>
-      <%= render 'layouts/errors', obj: @user %>
       <div class="form-group mt-4">
         <b><%= f.label :name, "ユーザー名" %></b>
         <%= f.text_field :name, class: "form-control name" %>

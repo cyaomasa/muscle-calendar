@@ -5,11 +5,11 @@
     <%= link_to t('simple_calendar.next', default: '>>'), calendar.url_for_next_view, remote: true, class: "next_btn" %>
   </div>
   <div class="table-responsive-md">
-    <table class="table table-striped text-nowrap">
+    <table class="table table-striped text-nowrap" style="table-layout:fixed;">
       <thead>
         <tr>
           <% date_range.slice(0, 7).each do |day| %>
-            <th><%= t('date.abbr_day_names')[day.wday] %></th>
+            <th style="width:150px;"><%= t('date.abbr_day_names')[day.wday] %></th>
           <% end %>
         </tr>
       </thead>

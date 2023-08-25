@@ -79,12 +79,12 @@ ActiveRecord::Schema.define(version: 2023_08_10_062320) do
   end
 
   create_table "post_records", force: :cascade do |t|
-    t.string "training_name"
-    t.integer "set_count"
-    t.integer "weight"
-    t.integer "rep_count"
+    t.string "training_name", null: false
+    t.integer "set_count", null: false
+    t.integer "weight", null: false
+    t.integer "rep_count", null: false
     t.integer "user_id", null: false
-    t.datetime "start_time"
+    t.datetime "start_time", null: false
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

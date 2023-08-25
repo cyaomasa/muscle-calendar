@@ -1,8 +1,5 @@
 <div class="container">
   <h4 class="mt-5">＜カテゴリ編集＞</h4>
-  <div class="mt-3">
-    <%= render "layouts/errors", obj: @category %>
-  </div>
   <%= form_with model: @category, url: admin_category_path, method: :patch do |f| %>
   <table class="row my-5 ml-1">
     <tr>

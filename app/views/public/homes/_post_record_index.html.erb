@@ -1,5 +1,5 @@
 <h5 class="pb-4"><b>＜トレーニング数の比較＞</b></h5>
-<table class="table table-bordered">
+<table class="table table-bordered text-center">
   <thead>
     <tr class="table-warning">
       <th>今週</th>
@@ -8,11 +8,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="text-right">
+    <tr>
       <td><%= @this_week_post_record.count %>種目 </td>
       <td><%= @last_week_post_record.count %>種目</td>
     <% if @last_week_post_record.count == 0 %>
-      <td>0%</td>
+      <td>前週のトレーニング数0</td>
     <% else %>
       <td>
         <!--前週比-->
@@ -23,7 +23,7 @@
     </tr>
   </tbody>
 </table>
-<table class="table table-bordered mt-5">
+<table class="table table-bordered mt-5 text-center">
   <thead>
     <tr class="table-warning">
       <th>今月</th>
@@ -32,11 +32,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="text-right">
+    <tr>
       <td><%= @this_month_post_record.count %>種目</td>
       <td><%= @last_month_post_record.count %>種目</td>
     <% if @last_month_post_record.count == 0 %>
-      <td>0%</td>
+      <td>前月のトレーニング数0</td>
     <% else %>
       <td>
         <!--前月比-->

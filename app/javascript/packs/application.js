@@ -26,5 +26,20 @@ $(function() {
     nextArrow: '<i class="fas fa-arrow-alt-circle-right"></i>',
     dots:true
   })
+  if ($('.checkbox:checked').length > 0) {
+      $('.training-submit').prop('disabled', false);
+    } else {
+      // 全てのチェックボックスが空の場合
+      $('.training-submit').prop('disabled', true);
+    }
+  $('.checkbox').on('change', function() {
+    // どれか一つでもチェックがついていれば
+    if ($('.checkbox:checked').length > 0) {
+      $('.training-submit').prop('disabled', false);
+    } else {
+      // 全てのチェックボックスが空の場合
+      $('.training-submit').prop('disabled', true);
+    }
+  });
 });
 });

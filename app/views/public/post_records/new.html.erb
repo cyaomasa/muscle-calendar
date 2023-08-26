@@ -2,12 +2,12 @@
   <h4 class="my-5">＜トレーニング記録/投稿＞</h4>
   <%= form_with model: @form, url: post_records_path, method: :post, local: true do |form| %>
   <div class="text-center my-4">
-    <%= form.submit '選択した項目を登録', class: 'btn btn-success' %>
+    <%= form.submit '選択した項目を登録', class: 'training-submit btn btn-success' %>
   </div>
   <%= form.fields_for :post_records do |f| %>
   <div class="card d-inline-flex ml-5 ml-md-3">
     <div class="card-header">
-      <%= f.check_box :availability, class: 'top10 registration-checkbox' %>
+      <%= f.check_box :availability, class: 'checkbox top10 registration-checkbox' %>
     </div>
     <table class="card-body">
       <tr>

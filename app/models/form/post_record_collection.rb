@@ -14,8 +14,13 @@ class Form::PostRecordCollection < Form::Base
   end
   
   def save(user)
+    checkbox_null_count = 0
     PostRecord.transaction do
       self.post_records.map do |post_record|
+        checkbox_null_count = checkbox_null_count + 1 unless post_record.availability
+        if checkbox_null_count == 6
+          redirect_to request.referer
+        end
         # チェックボックスにチェックを入れている投稿のみが保存される
         if post_record.availability 
           post_record.user_id = user.id

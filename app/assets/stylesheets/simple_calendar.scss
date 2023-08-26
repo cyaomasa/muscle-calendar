@@ -82,7 +82,10 @@
 
   .has-events {}
   
+  /*カレンダー内のトレーニング名*/
   .calendar-text {
+    width: 140px;
+    white-space: normal;
     font-size: 0.9rem;
   }
   

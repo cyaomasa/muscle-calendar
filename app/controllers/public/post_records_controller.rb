@@ -43,9 +43,14 @@ class Public::PostRecordsController < ApplicationController
 
   def destroy
     @post_record = PostRecord.find(params[:id])
-    @post_record.destroy
-    flash[:notice] = "削除が完了しました。"
-    redirect_to post_records_path
+    if @post_record.user_id == current_user.id
+      @post_record.destroy
+      redirect_to post_records_path
+      flash[:notice] = "削除が完了しました。"
+    else
+      redirect_to post_records_path
+      flash[:alert] = "他人の投稿は削除できません。"
+    end
   end
   
   private

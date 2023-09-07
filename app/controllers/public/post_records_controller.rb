@@ -49,7 +49,7 @@ class Public::PostRecordsController < ApplicationController
       flash[:notice] = "削除が完了しました。"
     else
       redirect_to post_records_path
-      flash[:alert] = "他人の投稿は削除できません。"
+      flash[:alert] = "ログインユーザー投稿は削除できません。"
     end
   end
   

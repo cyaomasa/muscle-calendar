@@ -9,7 +9,12 @@ class Public::CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find_by(id: params[:id])
-    @comment.destroy if @comment
+    if @comment.user_id == current_user.id
+      @comment.destroy if @comment
+    else
+      redirect_to post_records_path
+      flash[:alert] = "他人のコメントは削除できません。"
+    end
   end
   
   private

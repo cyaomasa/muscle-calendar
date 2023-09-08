@@ -1,5 +1,5 @@
 class Public::PostRecordsController < ApplicationController
-  before_action :is_matching_login_user, only: [:edit, :update]
+  before_action :is_matching_login_user, only: [:edit, :update, :destroy]
   
   def new
     @form = Form::PostRecordCollection.new
@@ -16,7 +16,6 @@ class Public::PostRecordsController < ApplicationController
   end
 
   def edit
-    @post_record = PostRecord.find(params[:id])
   end
 
   def create
@@ -31,7 +30,6 @@ class Public::PostRecordsController < ApplicationController
   end
 
   def update
-    @post_record = PostRecord.find(params[:id])
     if @post_record.update(post_record_params)
       flash[:notice] = "編集が完了しました。"
       redirect_to post_record_path(params[:id])
@@ -42,7 +40,6 @@ class Public::PostRecordsController < ApplicationController
   end
 
   def destroy
-    @post_record = PostRecord.find(params[:id])
     if @post_record.user_id == current_user.id
       @post_record.destroy
       redirect_to post_records_path
@@ -55,8 +52,8 @@ class Public::PostRecordsController < ApplicationController
   
   private
     def is_matching_login_user
-      post_record = PostRecord.find(params[:id])
-      user = post_record.user
+      @post_record = PostRecord.find(params[:id])
+      user = @post_record.user
       unless user.id == current_user.id
         redirect_to homes_calendar_path
       end
